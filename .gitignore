@@ -22,7 +22,12 @@ vendor/
 dist/
 build/
 
-# Claude Code (local only)
+# AI config files (local only)
+CLAUDE.md
+.cursorrules
+.cursor/
+.github/copilot-instructions.md
+.windsurfrules
 .claude/
 
 # WordPress (shouldn't be here, but just in case)
