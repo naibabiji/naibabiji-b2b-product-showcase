@@ -203,7 +203,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
         register_setting('naibabiji_b2b_product_settings', 'naibabiji_b2b_product_border_radius', array(
             'type' => 'string',
             'default' => '8px',
-            'sanitize_callback' => 'sanitize_text_field'
+            'sanitize_callback' => array($this, 'sanitize_border_radius')
         ));
 
         register_setting('naibabiji_b2b_product_settings', 'naibabiji_b2b_product_schema_currency', array(
@@ -283,7 +283,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
         register_setting('naibabiji_b2b_product_settings', 'naibabiji_b2b_ai_float_offset', array(
             'type' => 'string',
             'default' => '30px',
-            'sanitize_callback' => 'sanitize_text_field'
+            'sanitize_callback' => array($this, 'sanitize_css_size')
         ));
 
         // AI settings sections & fields (registered under dedicated page slugs)
@@ -1581,8 +1581,6 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
         jQuery(document).ready(function($) {
             function updateUsageUI(data) {
                 if (!data) return;
-                console.log('AI Usage Data:', data);
-                
                 var container = $('#naib_ai_usage_container');
                 var used = data.quota_used || 0;
                 var total = data.quota_total || 0;
@@ -1762,6 +1760,33 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
         }
         return '';
     }
+
+    public function sanitize_css_size($value) {
+        $value = trim((string) $value);
+        if ($this->is_valid_css_size_token($value)) {
+            return $value;
+        }
+        return '30px';
+    }
+
+    public function sanitize_border_radius($value) {
+        $value = trim((string) $value);
+        $parts = preg_split('/\s+/', $value);
+        if (!$parts || count($parts) > 4) {
+            return '8px';
+        }
+        foreach ($parts as $part) {
+            if (!$this->is_valid_css_size_token($part)) {
+                return '8px';
+            }
+        }
+        return implode(' ', $parts);
+    }
+
+    private function is_valid_css_size_token($value) {
+        return '0' === $value || (bool) preg_match('/^\d+(?:\.\d+)?(?:px|rem|em|%|vh|vw)$/i', $value);
+    }
+
     public function sanitize_array($value) {
         if (!is_array($value)) {
             return array();

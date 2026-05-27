@@ -111,11 +111,8 @@
      * Open the bulk inquiry form modal
      */
     window.naib_bulk_open_form = function(cart) {
-        console.log('[BulkInquiry:OpenForm] Called with cart items:', cart && cart.items ? cart.items.length : 0);
         var $modal = $('#naib-bulk-inquiry-form-modal');
-        console.log('[BulkInquiry:OpenForm] Modal element found:', $modal.length > 0);
         if (!$modal.length) {
-            console.warn('[BulkInquiry:OpenForm] Modal #naib-bulk-inquiry-form-modal not in DOM');
             return;
         }
 
@@ -125,17 +122,14 @@
             var specCount = item.specs ? item.specs.length : 0;
             listHtml += '<p style="margin:2px 0;">&bull; ' + escapeHtml(item.product_name) + ' (' + specCount + ' specs)</p>';
         });
-        console.log('[BulkInquiry:OpenForm] Product list HTML:', listHtml);
         $('#naib-bulk-form-product-list').html(listHtml);
 
         // Store cart data
         var cartJson = JSON.stringify(cart);
-        console.log('[BulkInquiry:OpenForm] Cart JSON length:', cartJson.length);
         $('#naib-bulk-form-cart-data').val(cartJson);
 
         // Reset form
         var $form = $('#naib-bulk-inquiry-form');
-        console.log('[BulkInquiry:OpenForm] Form element found:', $form.length > 0);
         if ($form.length && $form[0]) {
             $form[0].reset();
         }
@@ -158,11 +152,7 @@
 
     // Initialize on DOM ready
     $(document).ready(function() {
-        console.log('[BulkInquiry:Init] DOM ready, bulk-inquiry.js loaded');
         var hasBulkInquiryCtx = typeof naib_bulk_inquiry !== 'undefined';
-        console.log('[BulkInquiry:Init] naib_bulk_inquiry defined:', hasBulkInquiryCtx);
-        console.log('[BulkInquiry:Init] specs section exists:', $('.naib-bulk-specs-section').length > 0);
-        console.log('[BulkInquiry:Init] modal in DOM:', $('#naib-bulk-inquiry-form-modal').length > 0);
 
         // ── Specs-table handlers (only when specs table is present) ──
         var $specsSection = $('.naib-bulk-specs-section');
@@ -243,7 +233,6 @@
 
         // ── Form submission — AJAX handler (always registered; form modal is on all pages) ──
         $(document).on('submit', '#naib-bulk-inquiry-form', function(e) {
-            console.log('[BulkInquiry:Submit] Form submit intercepted');
             e.preventDefault();
 
             if (!hasBulkInquiryCtx) {
@@ -342,7 +331,6 @@
         checkHashAndOpenForm();
         // Also listen for hash changes (when already on product page)
         window.addEventListener('hashchange', checkHashAndOpenForm);
-        console.log('[BulkInquiry:Init] All handlers registered. naib_bulk_open_form is', typeof window.naib_bulk_open_form);
     });
 
 })(jQuery);

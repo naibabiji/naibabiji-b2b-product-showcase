@@ -416,8 +416,7 @@
         });
 
         function performSearch(query) {
-            // AJAX search logic can be added here
-            console.log('Search query:', query);
+            // AJAX search logic can be added here.
         }
     }
 
@@ -597,7 +596,13 @@
                 product_id: dataObj.product_id,
                 source: dataObj.source,
                 contact: richContact,
-                message: dataObj.message || ''
+                message: dataObj.message || '',
+                name: dataObj.name || '',
+                email: dataObj.email || '',
+                whatsapp: dataObj.whatsapp || '',
+                job_title: dataObj.job_title || '',
+                company: dataObj.company || '',
+                country: dataObj.country || ''
             };
 
             $.ajax({
@@ -719,6 +724,12 @@
                 source: 'contact_form',
                 contact: richContact,
                 message: dataObj.message || '',
+                name: dataObj.name || '',
+                email: dataObj.email || '',
+                whatsapp: dataObj.whatsapp || '',
+                job_title: dataObj.job_title || '',
+                company: dataObj.company || '',
+                country: dataObj.country || '',
                 page_title: document.title
             };
 
@@ -779,8 +790,8 @@
                     action: 'naib_ai_get_nonce'
                 },
                 success: function(response) {
-                    if (response.success && response.data) {
-                        originalData.nonce = response.data;
+                    if (response.success && response.data && response.data.nonce) {
+                        originalData.nonce = response.data.nonce;
                         $submitBtn.prop('disabled', true).find('.btn-spinner').show();
                         submitWithNonceRetry(originalData, $form, $success, $status, $submitBtn);
                     } else {

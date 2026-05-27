@@ -579,42 +579,30 @@ class Naibabiji_B2B_Product_Frontend_Display {
             // Submit inquiry button — prefer in-page modal, fall back to navigation
             var cartSubmit = document.querySelector('.naib-cart-submit');
             if (cartSubmit) cartSubmit.addEventListener('click', function() {
-                console.log('[BulkInquiry:Cart] Submit button clicked');
                 var cart = getCart();
-                console.log('[BulkInquiry:Cart] Cart data:', cart);
                 if (!cart || !cart.items || !cart.items.length) {
-                    console.warn('[BulkInquiry:Cart] Cart is empty, aborting');
                     return;
                 }
 
-                console.log('[BulkInquiry:Cart] naib_bulk_open_form type:', typeof window.naib_bulk_open_form);
-                console.log('[BulkInquiry:Cart] Modal element:', document.getElementById('naib-bulk-inquiry-form-modal'));
-
                 // Best path: open the modal directly (bulk-inquiry.js is loaded)
                 if (typeof window.naib_bulk_open_form === 'function') {
-                    console.log('[BulkInquiry:Cart] Calling naib_bulk_open_form...');
                     window.naib_bulk_open_form(cart);
-                    console.log('[BulkInquiry:Cart] naib_bulk_open_form returned');
                     hideSidebar();
                     return;
                 }
 
-                console.log('[BulkInquiry:Cart] naib_bulk_open_form not available, falling back to navigation');
                 // Fallback: navigate to the first product page that has a valid URL
                 for (var i = 0; i < cart.items.length; i++) {
                     var url = cart.items[i].product_url;
-                    console.log('[BulkInquiry:Cart] Item ' + i + ' product_url:', url);
                     if (url) {
                         var hashIdx = url.indexOf('#');
                         if (hashIdx !== -1) url = url.substring(0, hashIdx);
-                        console.log('[BulkInquiry:Cart] Navigating to:', url + '#bulk-inquiry');
                         window.location.href = url + '#bulk-inquiry';
                         return;
                     }
                 }
 
                 var pid = cart.items[0] && cart.items[0].product_id;
-                console.log('[BulkInquiry:Cart] No URL found, trying product_id:', pid);
                 if (pid) {
                     window.location.href = window.location.origin + '/?p=' + pid + '#bulk-inquiry';
                 }

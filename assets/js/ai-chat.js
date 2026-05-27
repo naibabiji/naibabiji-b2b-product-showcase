@@ -20,7 +20,6 @@
         init() {
             // Only render if we have a valid product ID
             if (!this.getCurrentPostId()) {
-                console.log('AI Chat: No product context found, skipping initialization.');
                 return;
             }
             this.render();

@@ -241,13 +241,22 @@ class Naibabiji_B2B_Product_Showcase
         $table_name = $wpdb->prefix . 'naibb2pr_ai_leads';
 
         // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Version-controlled schema upgrade; table name is internally constructed, not user input
-        $column_exists = $wpdb->get_results("SHOW COLUMNS FROM `{$table_name}` LIKE 'inquiry_type'");
+        $columns = $wpdb->get_col("SHOW COLUMNS FROM `{$table_name}`", 0);
+        if (!is_array($columns)) {
+            $columns = array();
+        }
 
-        if (empty($column_exists)) {
-            $wpdb->query("ALTER TABLE `{$table_name}`
-                ADD COLUMN `inquiry_type` VARCHAR(20) DEFAULT 'single' COMMENT 'Inquiry type: single/bulk',
-                ADD COLUMN `inquiry_data` LONGTEXT NULL COMMENT 'Bulk inquiry data (JSON)',
-                ADD INDEX `idx_inquiry_type` (`inquiry_type`)");
+        if (!in_array('inquiry_type', $columns, true)) {
+            $wpdb->query("ALTER TABLE `{$table_name}` ADD COLUMN `inquiry_type` VARCHAR(20) DEFAULT 'single' COMMENT 'Inquiry type: single/bulk'");
+        }
+
+        if (!in_array('inquiry_data', $columns, true)) {
+            $wpdb->query("ALTER TABLE `{$table_name}` ADD COLUMN `inquiry_data` LONGTEXT NULL COMMENT 'Bulk inquiry data (JSON)'");
+        }
+
+        $index_exists = $wpdb->get_var("SHOW INDEX FROM `{$table_name}` WHERE Key_name = 'idx_inquiry_type'");
+        if (empty($index_exists)) {
+            $wpdb->query("ALTER TABLE `{$table_name}` ADD INDEX `idx_inquiry_type` (`inquiry_type`)");
         }
         // phpcs:enable
     }
@@ -294,10 +303,17 @@ class Naibabiji_B2B_Product_Showcase
             );
         }
 
-        $btn_color = Naibabiji_B2B_Settings::get('button_color');
-        $btn_hover = Naibabiji_B2B_Settings::get('button_hover_color');
-        $content_width = Naibabiji_B2B_Settings::get('content_width');
-        $border_radius = Naibabiji_B2B_Settings::get('border_radius');
+        $btn_color = sanitize_hex_color(Naibabiji_B2B_Settings::get('button_color'));
+        if (!$btn_color) {
+            $btn_color = '#0A7AFF';
+        }
+        $btn_hover = sanitize_hex_color(Naibabiji_B2B_Settings::get('button_hover_color'));
+        if (!$btn_hover) {
+            $btn_hover = '#085FCC';
+        }
+        $content_width = $this->sanitize_css_size_value(Naibabiji_B2B_Settings::get('content_width'), '');
+        $border_radius = $this->sanitize_css_size_list(Naibabiji_B2B_Settings::get('border_radius'), '8px');
+        $ai_float_offset = $this->sanitize_css_size_value(get_option('naibabiji_b2b_ai_float_offset', '30px'), '30px');
 
         $btn_color_rgb = $this->hex_to_rgb($btn_color);
         $btn_hover_rgb = $this->hex_to_rgb($btn_hover);
@@ -314,7 +330,7 @@ class Naibabiji_B2B_Product_Showcase
     --ai-primary-rgb: {$btn_color_rgb};
     --ai-border-radius: {$border_radius};
     --ai-float-position: " . esc_attr(get_option('naibabiji_b2b_ai_float_position', 'bottom-right')) . ";
-    --ai-float-offset: " . esc_attr(get_option('naibabiji_b2b_ai_float_offset', '30px')) . ";
+    --ai-float-offset: {$ai_float_offset};
 }
 .naibabiji-b2b-view-details-button,
 .naibabiji-b2b-inquiry-button,
@@ -635,10 +651,13 @@ class Naibabiji_B2B_Product_Showcase
             );
 
             // Inject brand accent color as CSS variables for Stripe-inspired admin UI
-            $accent = get_option('naibabiji_b2b_product_button_color', '#0A7AFF');
+            $accent = sanitize_hex_color(get_option('naibabiji_b2b_product_button_color', '#0A7AFF'));
+            if (!$accent) {
+                $accent = '#0A7AFF';
+            }
             $accent_hover = $this->adjust_hex_brightness($accent, -10);
             $accent_light = $this->adjust_hex_brightness($accent, 88);
-            $border_radius = Naibabiji_B2B_Settings::get('border_radius');
+            $border_radius = $this->sanitize_css_size_list(Naibabiji_B2B_Settings::get('border_radius'), '8px');
             wp_add_inline_style('naibabiji-b2b-product-showcase-admin-style', "
                 :root {
                     --naib-accent: {$accent};
@@ -669,6 +688,48 @@ class Naibabiji_B2B_Product_Showcase
             )
             );
         }
+    }
+
+    /**
+     * Sanitize a single CSS size token before outputting inline styles.
+     *
+     * @param string $value   Raw size value.
+     * @param string $default Fallback value.
+     * @return string
+     */
+    private function sanitize_css_size_value($value, $default) {
+        $value = trim((string) $value);
+        return $this->is_valid_css_size_token($value) ? $value : $default;
+    }
+
+    /**
+     * Sanitize a 1-4 value CSS size list, used for border-radius.
+     *
+     * @param string $value   Raw size list.
+     * @param string $default Fallback value.
+     * @return string
+     */
+    private function sanitize_css_size_list($value, $default) {
+        $parts = preg_split('/\s+/', trim((string) $value));
+        if (!$parts || count($parts) > 4) {
+            return $default;
+        }
+        foreach ($parts as $part) {
+            if (!$this->is_valid_css_size_token($part)) {
+                return $default;
+            }
+        }
+        return implode(' ', $parts);
+    }
+
+    /**
+     * Check a CSS size token against a small allowlist of safe units.
+     *
+     * @param string $value CSS size token.
+     * @return bool
+     */
+    private function is_valid_css_size_token($value) {
+        return '0' === $value || (bool) preg_match('/^\d+(?:\.\d+)?(?:px|rem|em|%|vh|vw)$/i', $value);
     }
 
     /**

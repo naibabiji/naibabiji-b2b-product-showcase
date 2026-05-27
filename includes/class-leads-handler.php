@@ -39,6 +39,82 @@ class Naibabiji_B2B_AI_Leads_Handler {
     }
 
     /**
+     * Get visitor IP for lightweight anti-spam checks.
+     */
+    private function get_client_ip() {
+        if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+            return sanitize_text_field(wp_unslash($_SERVER['HTTP_CF_CONNECTING_IP']));
+        }
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ips = explode(',', sanitize_text_field(wp_unslash($_SERVER['HTTP_X_FORWARDED_FOR'])));
+            return sanitize_text_field(trim($ips[0]));
+        }
+        return isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '0.0.0.0';
+    }
+
+    /**
+     * Apply simple per-IP rate limiting to frontend submissions.
+     */
+    private function check_rate_limit($prefix, $limit, $window) {
+        $rate_key   = $prefix . md5($this->get_client_ip());
+        $rate_count = (int) get_transient($rate_key);
+        if ($rate_count >= $limit) {
+            return false;
+        }
+        set_transient($rate_key, $rate_count + 1, $window);
+        return true;
+    }
+
+    /**
+     * Clear cached lead lists for all built-in filters.
+     */
+    private function clear_leads_cache() {
+        $filters = array('', 'ai_chat', 'inquiry_form', 'contact_form');
+        foreach ($filters as $filter) {
+            wp_cache_delete('naibabiji_b2b_ai_leads_list_' . md5($filter));
+        }
+        wp_cache_delete('naibabiji_b2b_ai_leads_list');
+    }
+
+    /**
+     * Extract a labelled value from the stored contact string.
+     */
+    private function extract_contact_field($contact, $label) {
+        if (preg_match('/^' . preg_quote($label, '/') . ':\s*(.+)$/mi', $contact, $matches)) {
+            return trim($matches[1]);
+        }
+        return '';
+    }
+
+    /**
+     * Validate required frontend inquiry/contact form fields server-side.
+     */
+    private function validate_contact_submission($source, $contact, $message) {
+        if (!in_array($source, array('inquiry_form', 'contact_form'), true)) {
+            return true;
+        }
+
+        $name = isset($_POST['name'])
+            ? sanitize_text_field(wp_unslash($_POST['name']))
+            : $this->extract_contact_field($contact, 'Name');
+        $email = isset($_POST['email'])
+            ? sanitize_email(wp_unslash($_POST['email']))
+            : sanitize_email($this->extract_contact_field($contact, 'Email'));
+
+        if ('' === $name) {
+            return new WP_Error('missing_name', __('Name is required', 'naibabiji-b2b-product-showcase'));
+        }
+        if ('' === $email || !is_email($email)) {
+            return new WP_Error('invalid_email', __('Please enter a valid email address', 'naibabiji-b2b-product-showcase'));
+        }
+        if ('' === trim($message)) {
+            return new WP_Error('missing_message', __('Message is required', 'naibabiji-b2b-product-showcase'));
+        }
+
+        return true;
+    }
+
+    /**
      * Create the leads table
      */
     public static function create_table() {
@@ -58,7 +134,8 @@ class Naibabiji_B2B_AI_Leads_Handler {
             inquiry_data longtext,
             status varchar(20) DEFAULT 'pending',
             created_at datetime DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY  (id)
+            PRIMARY KEY  (id),
+            KEY idx_inquiry_type (inquiry_type)
         ) $charset_collate;";
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -81,6 +158,11 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
 
+        if (!$this->check_rate_limit('naib_inquiry_rate_', 5, 5 * MINUTE_IN_SECONDS)) {
+            wp_send_json_error('Too many submissions. Please try again later.');
+            return;
+        }
+
         /**
          * Filter to allow captcha plugins to perform additional validation.
          * Return false to block submission, or true to allow.
@@ -95,9 +177,17 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
 
-        $contact     = isset($_POST['contact']) ? sanitize_text_field(wp_unslash($_POST['contact'])) : '';
+        $contact     = isset($_POST['contact']) ? sanitize_textarea_field(wp_unslash($_POST['contact'])) : '';
         if (empty($contact)) {
             wp_send_json_error('Contact info is required');
+            return;
+        }
+
+        $source      = isset($_POST['source']) ? sanitize_text_field(wp_unslash($_POST['source'])) : 'ai_chat';
+        $message     = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+        $validation  = $this->validate_contact_submission($source, $contact, $message);
+        if (is_wp_error($validation)) {
+            wp_send_json_error($validation->get_error_message());
             return;
         }
 
@@ -118,10 +208,10 @@ class Naibabiji_B2B_AI_Leads_Handler {
 
         $data = [
             'contact'    => $contact,
-            'message'    => isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '',
+            'message'    => $message,
             'product_id' => isset($_POST['product_id']) ? absint($_POST['product_id']) : 0,
             'history'    => $history,
-            'source'     => isset($_POST['source']) ? sanitize_text_field(wp_unslash($_POST['source'])) : 'ai_chat',
+            'source'     => $source,
             'page_title' => isset($_POST['page_title']) ? sanitize_text_field(wp_unslash($_POST['page_title'])) : '',
         ];
 
@@ -156,14 +246,10 @@ class Naibabiji_B2B_AI_Leads_Handler {
         }
 
         // Rate limiting — 5 minutes / 3 submissions per IP
-        $client_ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '0.0.0.0';
-        $rate_key  = 'naib_bulk_inquiry_rate_' . md5($client_ip);
-        $rate_count = (int) get_transient($rate_key);
-        if ($rate_count >= 3) {
+        if (!$this->check_rate_limit('naib_bulk_inquiry_rate_', 3, 5 * MINUTE_IN_SECONDS)) {
             wp_send_json_error('Too many submissions. Please try again later.');
             return;
         }
-        set_transient($rate_key, $rate_count + 1, 5 * MINUTE_IN_SECONDS);
 
         $is_valid = apply_filters('naibabiji_contact_form_validate', true, $_POST);
         if (!$is_valid) {
@@ -175,11 +261,21 @@ class Naibabiji_B2B_AI_Leads_Handler {
         $contact_parts = array();
         $form_fields = Naibabiji_B2B_Settings::get('inquiry_form_fields', array('name', 'email', 'message'));
 
-        if (in_array('name', $form_fields) && !empty($_POST['name'])) {
-            $contact_parts[] = 'Name: ' . sanitize_text_field(wp_unslash($_POST['name']));
+        if (in_array('name', $form_fields, true)) {
+            $name = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
+            if ('' === $name) {
+                wp_send_json_error('Name is required');
+                return;
+            }
+            $contact_parts[] = 'Name: ' . $name;
         }
-        if (in_array('email', $form_fields) && !empty($_POST['email'])) {
-            $contact_parts[] = 'Email: ' . sanitize_email(wp_unslash($_POST['email']));
+        if (in_array('email', $form_fields, true)) {
+            $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+            if ('' === $email || !is_email($email)) {
+                wp_send_json_error('Please enter a valid email address');
+                return;
+            }
+            $contact_parts[] = 'Email: ' . $email;
         }
         if (in_array('whatsapp', $form_fields) && !empty($_POST['whatsapp'])) {
             $contact_parts[] = 'WhatsApp: ' . sanitize_text_field(wp_unslash($_POST['whatsapp']));
@@ -201,7 +297,6 @@ class Naibabiji_B2B_AI_Leads_Handler {
         }
 
         $user_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
-
         // Parse cart data from POST — cart_data is JSON, each field sanitized after decode
         // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- JSON decoded then per-field sanitized in loop below
         $cart_data_raw = isset($_POST['cart_data']) ? wp_unslash($_POST['cart_data']) : '';
@@ -275,7 +370,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
 
         if ($inserted) {
             $lead_id = $wpdb->insert_id;
-            wp_cache_delete('naibabiji_b2b_ai_leads_list');
+            $this->clear_leads_cache();
             $this->send_bulk_inquiry_email($user_contact, $user_message, $inquiry_data, $lead_id);
             $response = array('id' => $lead_id);
             $redirect_url = $this->get_redirect_url();
@@ -389,7 +484,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
         $inserted = $wpdb->insert(
             self::$table_name,
             array(
-                'user_contact' => sanitize_text_field($data['contact']),
+                'user_contact' => sanitize_textarea_field($data['contact']),
                 'user_message' => sanitize_textarea_field($data['message']),
                 'product_id'   => isset($data['product_id']) ? absint($data['product_id']) : 0,
                 'chat_history' => isset($data['history']) ? wp_json_encode($data['history'], JSON_UNESCAPED_UNICODE) : '',
@@ -400,6 +495,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
         );
 
         if ($inserted) {
+            $this->clear_leads_cache();
             $this->trigger_notification($data);
             return $wpdb->insert_id;
         }
@@ -536,7 +632,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
         $deleted = $wpdb->query($wpdb->prepare("DELETE FROM $table WHERE created_at < DATE_SUB(NOW(), INTERVAL %d DAY)", $days));
 
         if (false !== $deleted) {
-            wp_cache_delete('naibabiji_b2b_ai_leads_list');
+            $this->clear_leads_cache();
         }
 
         return $deleted;
@@ -560,9 +656,6 @@ class Naibabiji_B2B_AI_Leads_Handler {
         
         $days = isset($_POST['days']) ? absint($_POST['days']) : 90;
         $deleted = $this->cleanup_old_leads($days);
-        
-        // Clear cache
-        wp_cache_delete('naibabiji_b2b_ai_leads_list');
         
         wp_send_json_success(array(
             'message' => sprintf(
@@ -592,16 +685,20 @@ class Naibabiji_B2B_AI_Leads_Handler {
                  ) . '</p></div>';
             
             // Clear cache after cleanup
-            wp_cache_delete('naibabiji_b2b_ai_leads_list');
+            $this->clear_leads_cache();
         }
         
+        $source_filter = isset($_GET['source_filter']) ? sanitize_text_field(wp_unslash($_GET['source_filter'])) : '';
+        if (!in_array($source_filter, array('', 'ai_chat', 'inquiry_form', 'contact_form'), true)) {
+            $source_filter = '';
+        }
+
         // Try to get leads from cache first
-        $cache_key = 'naibabiji_b2b_ai_leads_list';
+        $cache_key = 'naibabiji_b2b_ai_leads_list_' . md5($source_filter);
         $leads = wp_cache_get($cache_key);
         
         if (false === $leads) {
             $where_clause = "1=1";
-            $source_filter = isset($_GET['source_filter']) ? sanitize_text_field(wp_unslash($_GET['source_filter'])) : '';
             if ($source_filter) {
                 $where_clause .= $wpdb->prepare(" AND lead_source = %s", $source_filter);
             }
@@ -814,13 +911,17 @@ class Naibabiji_B2B_AI_Leads_Handler {
 
         <script>
             jQuery(document).ready(function($) {
+                function escapeHtml(value) {
+                    return $('<div>').text(value || '').html();
+                }
+
                 $('.view-chat-log').click(function() {
                     var history = $(this).data('history');
                     var logHtml = '<div style="background:#f1f1f1; padding:20px; border-radius:var(--naibabiji-b2b-border-radius); max-height:400px; overflow-y:auto;">';
                     if (history && history.length) {
                         history.forEach(function(msg) {
                             var role = msg.role === 'user' ? '<?php esc_html_e('Customer', 'naibabiji-b2b-product-showcase'); ?>' : '<?php esc_html_e('AI', 'naibabiji-b2b-product-showcase'); ?>';
-                            logHtml += '<p><strong>' + role + ':</strong> ' + msg.content + '</p>';
+                            logHtml += '<p><strong>' + role + ':</strong> ' + escapeHtml(msg.content) + '</p>';
                         });
                     } else {
                         logHtml += '<p><?php esc_html_e('No log available.', 'naibabiji-b2b-product-showcase'); ?></p>';
@@ -838,7 +939,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
                         contact_form: '<?php esc_html_e('Contact Form', 'naibabiji-b2b-product-showcase'); ?>'
                     };
                     var contactRaw = btn.data('contact');
-                    var contactHtml = contactRaw.replace(/^(Name|Email|WhatsApp|Company|Country):\s*/gim, function(match, label) {
+                    var contactHtml = escapeHtml(contactRaw).replace(/^(Name|Email|WhatsApp|Company|Country):\s*/gim, function(match, label) {
                         return '<strong>' + label + ':</strong> ';
                     }).replace(/\n/g, '<br>');
                     var contextLabel = source === 'contact_form'
@@ -873,7 +974,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
                         if (response.success) {
                             var data = response.data;
                             var lead = data.lead;
-                            var contactHtml = (lead.user_contact || '').replace(/^(Name|Email|WhatsApp|Company|Country):\s*/gim, function(match, label) {
+                            var contactHtml = escapeHtml(lead.user_contact || '').replace(/^(Name|Email|WhatsApp|Company|Country):\s*/gim, function(match, label) {
                                 return '<strong>' + label + ':</strong> ';
                             }).replace(/\n/g, '<br>');
 
