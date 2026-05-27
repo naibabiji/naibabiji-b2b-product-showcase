@@ -4,7 +4,7 @@ Tags: b2b, product catalog, rfq, bulk inquiry, no e-commerce
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 5.1.2
+Stable tag: 5.1.3
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,6 +170,17 @@ If the problem persists, please contact technical support and provide the theme 
 The plugin enforces a rate limit of 3 submissions per IP address within 5 minutes to prevent spam. If you need to test frequently or want a higher threshold, install a captcha plugin that integrates through the `naibabiji_contact_form_validate` filter.
 
 == Changelog ==
+
+= 5.1.3 =
+* **Security**: Added server-side validation (name, email, message) for inquiry and contact forms to prevent empty submissions.
+* **Security**: Added IP-based rate limiting to all form submission endpoints (5 submissions per 5 minutes for standard forms, 3 per 5 minutes for bulk inquiry).
+* **Security**: Added JS escaping for chat history and contact info in admin leads detail modal to prevent XSS.
+* **Security**: Sanitized CSS values (colors, border-radius, float offset) before inline output to prevent CSS injection.
+* **Fixed**: Nonce refresh in frontend AJAX retry logic now correctly reads the nonce from the response object.
+* **Fixed**: Lead list cache key now includes the source filter, preventing incorrect cache hits when switching filter tabs.
+* **Improved**: Frontend now sends structured fields (name, email, company, etc.) alongside contact info for more reliable backend processing.
+* **Improved**: Database upgrade routine now independently checks and adds missing columns and indexes.
+* **Improved**: Removed debug console.log statements from production JavaScript files.
 
 = 5.1.2 =
 * **Fixed**: Related products on single product pages now correctly exclude the current product from the random query via `post__not_in`, preventing the displayed count from dropping below the expected 4 when the current product appears in the random results.
