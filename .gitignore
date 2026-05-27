@@ -24,6 +24,7 @@ build/
 
 # AI config files (local only)
 CLAUDE.md
+AGENTS.md
 .cursorrules
 .cursor/
 .github/copilot-instructions.md
