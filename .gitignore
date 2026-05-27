@@ -1,0 +1,29 @@
+# Operating System
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+debug.log
+
+# Dependencies (if any added later)
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+
+# Claude Code (local only)
+.claude/
+
+# WordPress (shouldn't be here, but just in case)
+wp-config.php

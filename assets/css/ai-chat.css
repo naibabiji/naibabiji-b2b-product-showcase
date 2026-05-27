@@ -1,0 +1,296 @@
+/* 
+ * Premium AI Chat Widget - Glassmorphism Design
+ * SPEC v2 Aligned
+ */
+
+:root {
+    /* Variables are now injected dynamically via PHP in naibabiji-b2b-product-showcase.php */
+    /* Handled via --ai-primary, --ai-indigo, --ai-border-radius */
+    --ai-glass: rgba(255, 255, 255, 0.7);
+    --ai-glass-border: rgba(255, 255, 255, 0.3);
+    --ai-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* Inline launcher — sits next to Get Quote button */
+.naib-ai-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+    .naib-ai-btn-row {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.naib-ai-chat-launcher--inline {
+    /* Inherits base styles from .naib-b2b-btn */
+}
+
+
+/* Floating fallback (no inquiry button on page) */
+.naib-ai-chat-launcher--float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--ai-primary, #0A7AFF), var(--ai-indigo, #5856D6));
+    border-radius: 50%;
+    box-shadow: var(--ai-shadow);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Position variants */
+.naib-ai-pos-bottom-right {
+    bottom: var(--ai-float-offset, 30px);
+    right: var(--ai-float-offset, 30px);
+}
+
+.naib-ai-pos-bottom-left {
+    bottom: var(--ai-float-offset, 30px);
+    left: var(--ai-float-offset, 30px);
+}
+
+.naib-ai-pos-right-center {
+    right: var(--ai-float-offset, 30px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.naib-ai-pos-left-center {
+    left: var(--ai-float-offset, 30px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.naib-ai-chat-launcher--float:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.naib-ai-pos-right-center:hover,
+.naib-ai-pos-left-center:hover {
+    transform: translateY(-50%) scale(1.1) rotate(5deg);
+}
+
+/* Backdrop overlay - now uses shared .naib-overlay */
+.naib-ai-overlay {
+    display: none;
+}
+
+/* AI Chat Container - now uses shared .naib-panel structure */
+.naib-ai-chat-container {
+    /* Specialized sizing for AI chat */
+    max-width: 480px;
+}
+
+/* Specialized header styling for AI */
+.naib-ai-chat-header {
+    /* Additional AI-specific header styles if needed */
+}
+
+.naib-ai-messages {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 260px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.naib-ai-msg {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: var(--ai-border-radius, 16px);
+    font-size: 14px;
+    line-height: 1.5;
+    animation: ai-fade-in 0.3s ease;
+}
+
+.naib-ai-msg.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--ai-primary, #0A7AFF), var(--ai-indigo, #5856D6));
+    color: white;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: var(--ai-border-radius, 16px);
+    border-top-right-radius: var(--ai-border-radius, 16px);
+    border-bottom-left-radius: var(--ai-border-radius, 16px);
+}
+
+.naib-ai-msg.ai {
+    align-self: flex-start;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    color: #1d1d1f;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: var(--ai-border-radius, 16px);
+    border-top-right-radius: var(--ai-border-radius, 16px);
+    border-bottom-right-radius: var(--ai-border-radius, 16px);
+}
+
+.naib-ai-msg.ai p {
+    margin: 0 0 10px 0;
+}
+
+.naib-ai-msg.ai p:last-child {
+    margin-bottom: 0;
+}
+
+.naib-ai-msg.ai strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.naib-ai-msg.ai .naib-ai-list {
+    margin: 8px 0;
+    padding-left: 18px;
+    list-style-type: disc;
+}
+
+.naib-ai-msg.ai .naib-ai-list li {
+    margin-bottom: 4px;
+}
+
+.naib-ai-msg.ai .naib-ai-list li:last-child {
+    margin-bottom: 0;
+}
+
+.naib-ai-input-area {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid var(--ai-glass-border);
+    display: flex;
+    gap: 10px;
+}
+
+.naib-ai-input-area textarea {
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    border-radius: var(--ai-border-radius, 12px);
+    padding: 10px;
+    resize: none;
+    height: 40px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.naib-ai-input-area textarea:focus {
+    outline: none;
+    border-color: var(--ai-primary);
+}
+
+.naib-ai-send-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--ai-primary, #0A7AFF);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.naib-ai-send-btn:hover {
+    background: var(--ai-indigo, #5856D6);
+}
+
+@keyframes ai-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lead Capture Form */
+.naib-ai-lead-form {
+    background: white;
+    border-radius: var(--ai-border-radius, 16px);
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: ai-fade-in 0.3s ease;
+    align-self: flex-start;
+    max-width: 90%;
+}
+
+.naib-ai-lead-form p {
+    margin: 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.naib-ai-lead-form input {
+    border: 1px solid #e1e1e1;
+    border-radius: var(--ai-border-radius, 8px);
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.naib-ai-lead-form input:focus {
+    outline: none;
+    border-color: var(--ai-primary);
+}
+
+.naib-ai-lead-form button {
+    background: var(--ai-primary, #0A7AFF);
+    color: white;
+    border: none;
+    border-radius: var(--ai-border-radius, 8px);
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.naib-ai-lead-form button:hover:not(:disabled) {
+    background: var(--ai-indigo, #5856D6);
+}
+
+.naib-ai-lead-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.naib-lead-status {
+    font-size: 12px;
+    color: #e53e3e;
+    min-height: 16px;
+}
+
+.naib-lead-thanks {
+    font-size: 14px;
+    color: #38a169;
+    margin: 0;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator span {
+    height: 6px;
+    width: 6px;
+    background: #bbb;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 2px;
+    animation: typing 1s infinite;
+}
+
+@keyframes typing {
+    0% { transform: translateY(0px); }
+    33% { transform: translateY(-3px); }
+    66% { transform: translateY(0px); }
+}

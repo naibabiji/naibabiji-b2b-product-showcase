@@ -1,0 +1,163 @@
+/**
+ * B2B Product Showcase — Bulk Inquiry Styles
+ */
+
+/* Specs Table */
+.naib-bulk-specs-section {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: var(--naibabiji-b2b-border-radius, 8px);
+    padding: 20px;
+}
+
+.naib-bulk-specs-table th {
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+}
+
+.naib-bulk-specs-table td {
+    font-size: 14px;
+}
+
+.naib-spec-row:hover {
+    background: #fafafa;
+}
+
+.naib-spec-qty:focus {
+    border-color: var(--naibabiji-b2b-primary-color) !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--naibabiji-b2b-primary-rgb), 0.15);
+}
+
+.naib-spec-add-btn:hover {
+    background: var(--naibabiji-b2b-primary-hover) !important;
+}
+
+.naib-bulk-add-all-btn:hover {
+    background: var(--naibabiji-b2b-primary-hover) !important;
+}
+
+.naib-bulk-submit-direct-btn:hover {
+    background: #f0f7ff !important;
+}
+
+/* Inquiry Cart Float */
+.naib-inquiry-cart-icon {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.naib-inquiry-cart-icon:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Cart Sidebar */
+.naib-cart-sidebar {
+    font-size: 14px;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.naib-cart-qty:focus {
+    border-color: var(--naibabiji-b2b-primary-color) !important;
+    outline: none;
+}
+
+.naib-cart-submit:hover {
+    background: var(--naibabiji-b2b-primary-hover) !important;
+}
+
+.naib-cart-clear:hover {
+    background: #e0e0e0 !important;
+}
+
+/* Form Status */
+.naib-form-status.error {
+    background: #fce4e4;
+    color: #b71c1c;
+    display: block !important;
+}
+
+.naib-form-status.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    display: block !important;
+}
+
+/* Responsive — Mobile */
+@media (max-width: 768px) {
+    .naib-bulk-specs-section {
+        padding: 12px;
+    }
+
+    .naib-bulk-specs-table {
+        font-size: 12px;
+    }
+
+    .naib-bulk-specs-table th,
+    .naib-bulk-specs-table td {
+        padding: 8px 6px;
+    }
+
+    .naib-spec-qty {
+        width: 50px !important;
+        padding: 4px;
+    }
+
+    .naib-spec-add-btn {
+        padding: 4px 10px !important;
+        font-size: 11px !important;
+    }
+
+    .naib-bulk-specs-section > div:last-child {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .naib-bulk-add-all-btn,
+    .naib-bulk-submit-direct-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .naib-inquiry-cart-icon {
+        width: 48px !important;
+        height: 48px !important;
+        line-height: 48px !important;
+        font-size: 18px !important;
+        top: 10px !important;
+        right: 10px !important;
+    }
+
+    .naib-cart-sidebar {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+}
+
+/* No specs notice */
+.naib-no-specs-notice {
+    padding: 24px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 1px dashed #ddd;
+    border-radius: var(--naibabiji-b2b-border-radius, 6px);
+    margin: 20px 0;
+}
+
+/* Cart backdrop animation */
+.naib-cart-backdrop {
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+/* Cart product section */
+.naib-cart-product {
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

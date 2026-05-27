@@ -1,0 +1,2293 @@
+# Translation of Plugins - B2B Product Catalog – No E-Commerce, Global RFQ &amp; Bulk Quote - Stable (latest release) in Chinese (China)
+# This file is distributed under the same license as the Plugins - B2B Product Catalog – No E-Commerce, Global RFQ &amp; Bulk Quote - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-05-19 01:51+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - B2B Product Catalog – No E-Commerce, Global "
+"RFQ &amp; Bulk Quote - Stable (latest release)\n"
+"Language-Team: 简体中文\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-19 01:46+0000\n"
+"Last-Translator: \n"
+"X-Loco-Version: 2.8.4; wp-6.9.4; php-8.2.27"
+
+#: includes/class-meta-fields.php:226
+msgid "+ Add Spec"
+msgstr "+ 添加规格"
+
+#: includes/class-frontend-display.php:286
+msgid ">"
+msgstr ">"
+
+#: templates/bulk-inquiry-specs-table.php:34
+msgid "Action"
+msgstr "操作"
+
+#: includes/class-leads-handler.php:675
+msgid "Actions"
+msgstr "行动"
+
+#: templates/bulk-inquiry-specs-table.php:54
+msgid "Add"
+msgstr "添加"
+
+#: templates/bulk-inquiry-specs-table.php:67
+msgid "Add All to Cart"
+msgstr "全部加入购物车"
+
+#: includes/class-admin-settings.php:1214
+msgid ""
+"Add custom content to the top and bottom of the product archive page. This "
+"helps improve SEO and user engagement."
+msgstr "在产品归档页面的顶部和底部添加自定义内容，此举有助于提升SEO效果与用户参与度。"
+
+#: includes/class-meta-fields.php:516
+msgid "Add Images"
+msgstr "添加图片"
+
+#: includes/class-admin-settings.php:797
+msgid ""
+"Add model codes and descriptions in the Specs Management meta box, or import "
+"via CSV."
+msgstr "在规格管理元数据框中添加型号代码和描述，或通过 CSV 导入。"
+
+#: includes/post-types.php:24 includes/post-types.php:25
+msgid "Add New Product"
+msgstr "添加新产品"
+
+#: includes/post-types.php:88
+msgid "Add New Product Category"
+msgstr "添加新产品分类"
+
+#: includes/post-types.php:114
+msgid "Add New Product Tag"
+msgstr "添加新产品标签"
+
+#: includes/post-types.php:117
+msgid "Add or remove Product Tags"
+msgstr "添加或移除产品标签"
+
+#: includes/class-admin-settings.php:652
+msgid "Add Product"
+msgstr "添加产品"
+
+#: includes/class-admin-settings.php:1514
+msgid "Add Schema.org structured data markup"
+msgstr "添加 Schema.org 结构化数据标记"
+
+#: includes/class-admin-settings.php:1695
+msgid ""
+"Add your most common customer questions. The AI will use these to answer "
+"inquiries accurately. Format: Q: [Question] | A: [Answer], one per line."
+msgstr "添加你最常见的客户问题。AI 将依据这些内容精准回复咨询。格式：Q: [问题] | A: [回答]，每行一组。"
+
+#: naibabiji-b2b-product-showcase.php:454
+msgid "Added {count} specs to cart"
+msgstr "已将 {count} 个规格添加到购物车"
+
+#: includes/class-admin-settings.php:794
+msgid "Admin Setup:"
+msgstr "管理员设置："
+
+#: includes/class-admin-settings.php:1308
+msgid "Affects \"View Details\" and \"Inquiry\" buttons."
+msgstr "影响“查看详情”和“询价”按钮。"
+
+#: includes/class-hooks.php:262
+msgid "After product content"
+msgstr "产品内容之后"
+
+#: includes/class-hooks.php:266
+msgid "After product meta save completed"
+msgstr "产品元数据保存完成后"
+
+#: includes/class-hooks.php:265
+msgid "After product meta saved"
+msgstr "产品元数据保存后"
+
+#: includes/class-hooks.php:268
+msgid "After settings save completed"
+msgstr "设置保存完成后"
+
+#: includes/class-hooks.php:267
+msgid "After settings saved"
+msgstr "设置保存后"
+
+#: includes/class-hooks.php:271
+msgid "After template load"
+msgstr "模板加载后"
+
+#: includes/class-admin-settings.php:1156 includes/class-leads-handler.php:822
+msgid "AI"
+msgstr "AI"
+
+#: includes/class-meta-fields.php:154
+msgid "AI automatically reads these fields to answer customer questions:"
+msgstr "AI自动读取这些字段以回答客户问题："
+
+#: includes/class-admin-settings.php:718 includes/class-leads-handler.php:422
+#: includes/class-leads-handler.php:655 includes/class-leads-handler.php:716
+#: includes/class-leads-handler.php:883
+msgid "AI Chat"
+msgstr "AI聊天"
+
+#: includes/class-admin-settings.php:775 includes/class-admin-settings.php:928
+msgid "AI Customer Service"
+msgstr "AI客户服务"
+
+#: includes/class-admin-settings.php:856 includes/class-admin-settings.php:996
+msgid ""
+"AI Customer Service is currently disabled. Fill in the settings below and "
+"check \"Enable AI Customer Service\" to activate."
+msgstr "AI客户服务当前已禁用。填写以下设置并选中“启用AI客户服务”以激活。"
+
+#: includes/class-admin-settings.php:307
+msgid "AI License Key"
+msgstr "AI许可证密钥"
+
+#: includes/class-admin-settings.php:315
+msgid "AI Manager API URL"
+msgstr "API URL"
+
+#: includes/class-admin-settings.php:934
+msgid "AI Service Beta Notice"
+msgstr "AI服务测试通知"
+
+#: includes/class-admin-settings.php:936
+msgid "AI service is currently in beta. For a demo experience, visit:"
+msgstr "AI服务目前处于测试阶段。如需演示体验，请访问："
+
+#: includes/class-meta-fields.php:128
+msgid "AI Writing Tips"
+msgstr "AI写作技巧"
+
+#: includes/class-admin-settings.php:1045
+msgid "AI's primary source for \"what is this product\" questions"
+msgstr "AI 回答“这是什么产品”类问题的主要依据"
+
+#: includes/class-meta-fields.php:163
+msgid "AI's primary source. Include: spec, use case, top 2–3 advantages."
+msgstr "AI 的主要信息来源。包含：产品规格、使用场景、2-3 项核心优势。"
+
+#: templates/archive-naibb2pr_products.php:69
+msgid "All"
+msgstr "全部"
+
+#: includes/class-admin-settings.php:1104
+msgid "All Categories"
+msgstr "所有分类"
+
+#: includes/post-types.php:83
+msgid "All Product Categories"
+msgstr "所有产品分类"
+
+#: includes/post-types.php:111
+msgid "All Product Tags"
+msgstr "所有产品标签"
+
+#: includes/post-types.php:29
+msgid "All Products"
+msgstr "所有产品"
+
+#: includes/class-leads-handler.php:654
+msgid "All Sources"
+msgstr "所有来源"
+
+#: includes/class-admin-settings.php:1044
+msgid "always included (currency unit taken from SEO settings)"
+msgstr "始终包含（货币单位取自SEO设置）"
+
+#: templates/bulk-inquiry-form.php:79
+msgid "Any additional notes..."
+msgstr "任何附加说明…"
+
+#: includes/class-admin-settings.php:990
+msgid "API URL: https://api.quhenet.com Plugin feedback: WeChat vv15_zhi"
+msgstr "API地址：https://api.quhenet.com 插件反馈：微信 vv15_zhi"
+
+#: includes/class-admin-settings.php:1154
+msgid "Appearance"
+msgstr "外观"
+
+#: includes/class-admin-settings.php:373 includes/class-admin-settings.php:1168
+msgid "Appearance Settings"
+msgstr "外观设置"
+
+#: includes/class-meta-fields.php:200
+msgid "Append"
+msgstr "追加"
+
+#: includes/class-admin-settings.php:789
+msgid ""
+"Applies only to Standard-type products. External Link redirects to a URL; "
+"Built-in Form opens a popup."
+msgstr "仅适用于「标准」类型的产品。外部链接跳转到 URL；内置表单弹出窗口。"
+
+#: includes/class-admin-settings.php:1158
+msgid "Archive Content"
+msgstr "存档页内容"
+
+#: includes/class-admin-settings.php:558
+msgid "Archive Display Content"
+msgstr "存档显示内容"
+
+#: includes/class-admin-settings.php:419
+msgid "Archive Grid Columns"
+msgstr "产品归档页列数"
+
+#: includes/class-admin-settings.php:394 includes/class-admin-settings.php:1212
+msgid "Archive Page SEO Content"
+msgstr "存档页面SEO内容"
+
+#: includes/class-leads-handler.php:644
+msgid ""
+"Are you sure you want to delete old records? This action cannot be undone."
+msgstr "您确定要删除旧记录吗？此操作无法撤消。"
+
+#: naibabiji-b2b-product-showcase.php:666
+msgid "Are you sure you want to delete this item?"
+msgstr "确定要删除此项吗？"
+
+#: templates/bulk-inquiry-specs-table.php:24
+msgid "Available Specs"
+msgstr "可用规格"
+
+#. Name of the plugin
+msgid "B2B Product Catalog – No E-Commerce, Global RFQ & Bulk Quote"
+msgstr "B2B 产品目录 — 纯 B2B，全球询价与批量报价"
+
+#: includes/post-types.php:41
+msgid "B2B Product Showcase"
+msgstr "B2B 产品目录"
+
+#: naibabiji-b2b-product-showcase.php:810
+msgid "B2B Product Showcase — Action Required:"
+msgstr "B2B 产品目录 — 需要操作："
+
+#: includes/class-admin-settings.php:37 includes/class-admin-settings.php:38
+msgid "B2B Showcase"
+msgstr "B2B 产品目录"
+
+#: includes/class-hooks.php:261
+msgid "Before product content"
+msgstr "产品内容之前"
+
+#: includes/class-hooks.php:269
+msgid "Before template load"
+msgstr "模板加载之前"
+
+#: includes/class-admin-settings.php:1706
+msgid "Bottom Left"
+msgstr "左下角"
+
+#: includes/class-admin-settings.php:1705
+msgid "Bottom Right"
+msgstr "右下角"
+
+#: includes/class-frontend-display.php:285
+#: templates/taxonomy-naibb2pr_product_category.php:80
+#: templates/taxonomy-naibb2pr_product_tag.php:56
+msgid "Breadcrumb Navigation"
+msgstr "面包屑导航"
+
+#: includes/class-admin-settings.php:836
+msgid "Bug Report & Feedback"
+msgstr "Bug 报告与反馈"
+
+#: includes/class-admin-settings.php:1396
+msgid "Built-in Inquiry Form — Popup modal on click"
+msgstr "内置询价表单 — 点击弹出模态窗口"
+
+#: includes/class-admin-settings.php:707 includes/class-admin-settings.php:787
+#: includes/class-leads-handler.php:722
+msgid "Bulk"
+msgstr "批量"
+
+#: includes/class-leads-handler.php:901
+msgid "Bulk Inquiry Detail"
+msgstr "批量询价详情"
+
+#: includes/class-admin-settings.php:793
+msgid "Bulk Inquiry Workflow"
+msgstr "批量询价工作流程"
+
+#: includes/class-admin-settings.php:1428 includes/class-meta-fields.php:630
+msgid "Bulk — Multi-spec batch inquiry"
+msgstr "批量 — 多规格批量询价"
+
+#: includes/class-admin-settings.php:411
+msgid "Button Hover Color"
+msgstr "按钮悬停颜色"
+
+#: includes/class-meta-fields.php:636
+msgid "Button Text:"
+msgstr "按钮文本："
+
+#: includes/class-meta-fields.php:243
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/class-admin-settings.php:803
+msgid ""
+"Cart persists across products (localStorage). Browse and add specs from "
+"multiple products."
+msgstr "购物车跨产品持久保留（localStorage）。浏览并添加多个产品的规格。"
+
+#: includes/class-admin-settings.php:1322
+msgid "Categories only — show category cards in a grid"
+msgstr "仅产品分类-在网格中显示分类卡片"
+
+#: templates/archive-naibb2pr_products.php:65
+msgid "Categories:"
+msgstr "分类："
+
+#: includes/class-admin-settings.php:769
+msgid "Category & Tag SEO Content"
+msgstr "分类页和标签SEO内容"
+
+#: includes/class-taxonomy-fields.php:229
+#: includes/class-taxonomy-fields.php:315
+msgid "Category Image"
+msgstr "分类图片"
+
+#: templates/content-product-card.php:63
+msgid "Category:"
+msgstr "分类："
+
+#: includes/class-leads-handler.php:753
+msgid "Chat Log"
+msgstr "聊天记录"
+
+#: includes/post-types.php:118
+msgid "Choose from the most used Product Tags"
+msgstr "从最常用的产品标签中选择"
+
+#: includes/class-admin-settings.php:1330
+msgid ""
+"Choose what to display on the product archive page. Categories-only mode "
+"requires category images to be set."
+msgstr "选择要在产品存档页面上显示的内容。仅显示分类模式需要设置分类图像。"
+
+#: includes/class-taxonomy-fields.php:265
+msgid "Choose where to display the SEO content on the category page."
+msgstr "选择在分类页面哪里显示 SEO 内容。"
+
+#: includes/class-taxonomy-fields.php:480
+msgid "Choose where to display the SEO content on the tag page."
+msgstr "选择在标签页面哪里显示 SEO 内容。"
+
+#. %d: number of records deleted
+#: includes/class-leads-handler.php:570
+msgid "Cleanup completed. %d records deleted."
+msgstr "清理完成。%d条记录已删除。"
+
+#. %d: number of days
+#: includes/class-leads-handler.php:590
+msgid "Cleanup completed. Records older than %d days have been removed."
+msgstr "清理完成。超过%d天的记录已被删除。"
+
+#: includes/class-leads-handler.php:626
+msgid "Cleanup Old Records"
+msgstr "清理旧记录"
+
+#: includes/class-frontend-display.php:413
+msgid "Clear Cart"
+msgstr "清空购物车"
+
+#: templates/bulk-inquiry-form.php:103 templates/inquiry-form-modal.php:95
+msgid "Close"
+msgstr "关闭"
+
+#: includes/class-admin-settings.php:1091
+msgid "Columns"
+msgstr "列"
+
+#: includes/class-admin-settings.php:1443 templates/bulk-inquiry-form.php:64
+#: templates/inquiry-form-inline.php:54 templates/inquiry-form-modal.php:58
+msgid "Company"
+msgstr "公司"
+
+#: includes/class-admin-settings.php:330
+msgid "Company Profile"
+msgstr "公司简介"
+
+#: includes/class-admin-settings.php:1047
+msgid "Company Profile & FAQ"
+msgstr "公司简介和常见问题解答"
+
+#: includes/class-admin-settings.php:1083
+msgid "Configuration"
+msgstr "配置"
+
+#: includes/class-admin-settings.php:1534
+msgid "Configure industrial-grade AI customer service powered by DeepSeek."
+msgstr "配置由DeepSeek提供支持的工业级AI客户服务。"
+
+#: includes/class-admin-settings.php:1075
+msgid ""
+"Configure options to generate a shortcode for displaying products on any "
+"page or post."
+msgstr "配置选项以生成短代码，在任何页面或文章中显示产品。"
+
+#: includes/class-admin-settings.php:1183
+msgid "Configure product inquiry related settings."
+msgstr "配置产品询价相关设置。"
+
+#: includes/class-admin-settings.php:1201
+msgid "Configure SEO related features."
+msgstr "配置 SEO 相关功能。"
+
+#: includes/class-admin-settings.php:930
+msgid ""
+"Configure the AI chat widget for your product pages. Customers can ask "
+"questions in real time and get instant answers based on your product and "
+"company knowledge."
+msgstr "为您的产品页面配置AI聊天小部件。客户可以根据您的产品和公司知识实时提问并获得即时答案。"
+
+#: includes/class-meta-fields.php:242
+msgid "Confirm Import"
+msgstr "确认导入"
+
+#: includes/class-admin-settings.php:1538
+msgid "Connect your AI Manager instance and activate your license key."
+msgstr "连接您的AI Manager实例并激活您的许可证密钥。"
+
+#: includes/class-admin-settings.php:873 includes/class-admin-settings.php:1007
+msgid "Connection Setup"
+msgstr "连接设置"
+
+#: includes/class-admin-settings.php:688 includes/class-admin-settings.php:716
+#: includes/class-leads-handler.php:671 includes/class-leads-handler.php:714
+msgid "Contact"
+msgstr "联系方式"
+
+#: includes/class-leads-handler.php:420 includes/class-leads-handler.php:657
+#: includes/class-leads-handler.php:838 includes/class-leads-handler.php:882
+msgid "Contact Form"
+msgstr "联系表单"
+
+#: includes/class-admin-settings.php:810
+msgid "Contact Form Shortcode"
+msgstr "联系表单短代码"
+
+#: includes/class-leads-handler.php:797
+msgid "Contact Info"
+msgstr "联系信息"
+
+#: templates/single-naibb2pr_products.php:144
+msgid "Contact Us for Pricing"
+msgstr "联系我们获取价格"
+
+#: includes/class-admin-settings.php:427
+msgid "Content Area Width"
+msgstr "内容区域宽度"
+
+#: includes/class-taxonomy-fields.php:259
+#: includes/class-taxonomy-fields.php:474
+msgid "Content Display Position"
+msgstr "内容显示位置"
+
+#: includes/class-admin-settings.php:1297
+msgid ""
+"Content displayed at the bottom of the product archive page, supporting text,"
+" images, and links."
+msgstr "产品存档页面底部显示的内容，支持文本、图像和链接。"
+
+#: includes/class-admin-settings.php:1279
+msgid ""
+"Content displayed at the top of the product archive page, supporting text, "
+"images, and links."
+msgstr "产品存档页面顶部显示的内容，支持文本、图像和链接。"
+
+#: includes/class-leads-handler.php:674
+msgid "Context"
+msgstr "场景信息"
+
+#: includes/class-admin-settings.php:1699
+msgid ""
+"Control where the floating AI chat icon appears on your product pages when "
+"no inquiry button is present."
+msgstr "当没有询盘按钮时，控制浮动AI聊天图标在您的产品页面上的显示位置。"
+
+#: includes/class-admin-settings.php:1128
+msgid "Copy Shortcode"
+msgstr "复制短代码"
+
+#: includes/class-admin-settings.php:1132
+msgid ""
+"Copy the shortcode and paste it into any editor or page builder text module."
+msgstr "复制短代码并粘贴到任何编辑器或页面构建器的文本模块中。"
+
+#: includes/class-admin-settings.php:1444 templates/bulk-inquiry-form.php:71
+#: templates/inquiry-form-inline.php:61 templates/inquiry-form-modal.php:65
+msgid "Country"
+msgstr "国家"
+
+#: includes/class-meta-fields.php:331
+msgid "CSV has too many rows. Max 1000 data rows."
+msgstr "CSV 行数过多。最多 1000 行数据。"
+
+#: includes/class-meta-fields.php:238
+msgid "CSV Import Preview"
+msgstr "CSV 导入预览"
+
+#: includes/class-meta-fields.php:327
+msgid "CSV must have header and at least one data row."
+msgstr "CSV 必须包含表头和至少一行数据。"
+
+#: includes/class-admin-settings.php:1521
+msgid ""
+"Currency code for structured data (e.g. USD, EUR, CNY). Used in the "
+"\"offers\" property to satisfy Google requirements."
+msgstr "结构化数据的货币代码（例如USD, EUR, CNY）。在“offers”属性中使用以满足Google的要求。"
+
+#: includes/class-leads-handler.php:822
+msgid "Customer"
+msgstr "客户"
+
+#: includes/class-admin-settings.php:800
+msgid "Customer Flow:"
+msgstr "客户流程："
+
+#: includes/class-admin-settings.php:1170
+msgid "Customize colors and layout for product listings and details."
+msgstr "自定义产品列表与详情中的颜色和布局。"
+
+#: includes/class-admin-settings.php:49 includes/class-admin-settings.php:50
+#: includes/class-admin-settings.php:647
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: includes/class-admin-settings.php:691 includes/class-leads-handler.php:668
+#: includes/class-leads-handler.php:805
+msgid "Date"
+msgstr "日期"
+
+#: includes/class-leads-handler.php:634
+msgid "Days to keep"
+msgstr "保留天数"
+
+#: includes/class-admin-settings.php:1556
+msgid "Deactivate License"
+msgstr "停用许可证"
+
+#: includes/class-admin-settings.php:453
+msgid "Default Inquiry Button Text"
+msgstr "默认询价按钮文本"
+
+#: includes/class-admin-settings.php:461
+msgid "Default Inquiry Page URL"
+msgstr "默认询价页面链接"
+
+#: includes/class-admin-settings.php:477
+msgid "Default Inquiry Type for New Products"
+msgstr "新产品的默认询价类型"
+
+#: includes/class-admin-settings.php:566
+msgid "Default Product Sorting"
+msgstr "默认产品排序"
+
+#: includes/class-hooks.php:279
+msgid "Default settings"
+msgstr "默认设置"
+
+#: includes/class-admin-settings.php:1346
+msgid "Default sort order for the product archive, category, and tag pages."
+msgstr "产品存档、类别和标签页的默认排序顺序。"
+
+#: includes/class-admin-settings.php:1321
+msgid "Default — show category filters and products"
+msgstr "默认-显示分类过滤器和产品"
+
+#: includes/class-leads-handler.php:758 includes/class-leads-handler.php:767
+msgid "Detail"
+msgstr "详情"
+
+#: includes/class-meta-fields.php:166
+msgid "Details (first ~500 words)"
+msgstr "详细信息（前~500字）"
+
+#: includes/class-admin-settings.php:785
+msgid "Disables inquiry for this product."
+msgstr "禁用此产品的询价功能。"
+
+#: includes/class-admin-settings.php:893 includes/class-admin-settings.php:1029
+msgid "Display & Positioning"
+msgstr "显示和定位"
+
+#: includes/class-admin-settings.php:1509
+msgid "Display breadcrumb navigation on product pages"
+msgstr "在产品页面显示面包屑导航"
+
+#: includes/class-admin-settings.php:1113
+#: includes/class-taxonomy-fields.php:302
+#: includes/class-taxonomy-fields.php:517
+msgid "Display Options"
+msgstr "显示选项"
+
+#: includes/class-admin-settings.php:443
+msgid "Display Product Meta"
+msgstr "显示产品元信息"
+
+#: includes/class-admin-settings.php:1720
+msgid "Distance from the edge. Include CSS unit (e.g., 30px, 5%, 2em)."
+msgstr "与边缘的距离。包括CSS单元（例如，30px、5%、2em）。"
+
+#: includes/class-admin-settings.php:798
+msgid ""
+"Drag-and-drop to reorder. CSV format: first row \"Model Code,Spec "
+"Description\", max 1000 rows."
+msgstr "拖放排序。CSV 格式：第一行「Model Code,Spec Description」，最多 1000 行。"
+
+#: includes/class-meta-fields.php:600
+msgid "e.g. 99.99 (Leave empty for No Price)"
+msgstr "例如99.99（留空表示无价格）"
+
+#: templates/bulk-inquiry-form.php:58 templates/inquiry-form-inline.php:48
+#: templates/inquiry-form-modal.php:52
+msgid "e.g. Purchasing Manager"
+msgstr "例如：采购经理"
+
+#: templates/bulk-inquiry-form.php:72 templates/inquiry-form-inline.php:62
+#: templates/inquiry-form-modal.php:66
+msgid "e.g. United States"
+msgstr "例如美国"
+
+#: includes/class-admin-settings.php:770
+msgid ""
+"Each product category and tag can have custom SEO content at the top and "
+"bottom of the page."
+msgstr "每个产品类别和标签都可以在页面的顶部和底部具有自定义SEO内容。"
+
+#: includes/class-admin-settings.php:796
+msgid "Edit a product → set Inquiry Type to Bulk."
+msgstr "编辑产品 → 将询价类型设置为「批量」。"
+
+#: includes/class-meta-fields.php:177
+msgid "Edit Company Profile & FAQ →"
+msgstr "编辑公司简介和常见问题解答→"
+
+#: includes/post-types.php:27
+msgid "Edit Product"
+msgstr "编辑产品"
+
+#: includes/post-types.php:86
+msgid "Edit Product Category"
+msgstr "编辑产品分类"
+
+#: includes/post-types.php:112
+msgid "Edit Product Tag"
+msgstr "编辑产品标签"
+
+#: includes/class-admin-settings.php:1440 templates/bulk-inquiry-form.php:43
+#: templates/inquiry-form-inline.php:33 templates/inquiry-form-modal.php:37
+msgid "Email"
+msgstr "电子邮件"
+
+#: naibabiji-b2b-product-showcase.php:405
+msgid "Email/WeChat/Mobile/WhatsApp"
+msgstr "电子邮件/微信/手机/WhatsApp"
+
+#: includes/class-admin-settings.php:811
+msgid "Embed a standalone contact form on any page:"
+msgstr "在任何页面嵌入独立联系表单："
+
+#: includes/class-admin-settings.php:299
+msgid "Enable AI Customer Service"
+msgstr "启用AI客服"
+
+#: includes/class-admin-settings.php:776
+msgid ""
+"Enable AI-powered customer service chat on your product pages. Configure "
+"license key, knowledge base, and display position."
+msgstr "在产品页面上启用 AI 驱动的客服聊天。配置许可证密钥、知识库和显示位置。"
+
+#: includes/class-admin-settings.php:1298
+#: includes/class-taxonomy-fields.php:384
+#: includes/class-taxonomy-fields.php:580
+msgid "Enable bottom SEO content"
+msgstr "启用底部SEO内容"
+
+#: includes/class-admin-settings.php:517
+msgid "Enable Breadcrumbs"
+msgstr "启用面包屑导航"
+
+#: includes/class-admin-settings.php:525
+msgid "Enable Schema.org Structured Data"
+msgstr "启用 Schema.org 结构化数据"
+
+#: includes/class-taxonomy-fields.php:269
+#: includes/class-taxonomy-fields.php:484
+msgid "Enable SEO Content"
+msgstr "启用 SEO 内容"
+
+#: includes/class-admin-settings.php:1547
+msgid "Enable the floating AI chat widget on product pages"
+msgstr "在产品页面上启用浮动AI聊天小部件"
+
+#: includes/class-admin-settings.php:1280
+#: includes/class-taxonomy-fields.php:355
+#: includes/class-taxonomy-fields.php:551
+msgid "Enable top SEO content"
+msgstr "启用顶部SEO内容"
+
+#: includes/class-admin-settings.php:1503
+msgid ""
+"Enter the full URL of the thank-you/conversion page. Supports relative paths "
+"like /thank-you."
+msgstr "输入感谢/转换页面的完整URL。支持相对路径，如 /thank-you."
+
+#: includes/class-admin-settings.php:1680
+msgid ""
+"Example:\n"
+"We are [Company Name], a B2B supplier specializing in [industry/product "
+"category], serving over [X] customers across [X] countries.\n"
+"Core Products: [List your product lines]\n"
+"Certifications: [ISO 9001 / CE / RoHS / etc.]\n"
+"Lead Time: Typically [X] business days; supports bulk and FCL orders.\n"
+"Payment: T/T, L/C, PayPal\n"
+"Contact: sales@yourdomain.com"
+msgstr ""
+"示例：\n"
+"我们是[公司名称]，一家专门从事[行业/产品类别]的B2B供应商，服务于[X]个国家的[X]个客户。\n"
+"核心产品：[列出您的产品线]\n"
+"认证：[ISO 9001/CE/危害性物质限制指令/等]\n"
+"交货时间：通常为[X]个工作日；支持批量和整箱订单。\n"
+"付款方式：电汇、信用证、PayPal\n"
+"联系人：sales@yourdomain.com"
+
+#: includes/class-admin-settings.php:1570
+msgid "Expires:"
+msgstr "过期："
+
+#: includes/class-meta-fields.php:198
+msgid "Export CSV"
+msgstr "导出 CSV"
+
+#: includes/class-admin-settings.php:1395
+msgid "External Link — Redirect to inquiry URL"
+msgstr "外部链接 — 跳转到询价链接"
+
+#: includes/class-bulk-inquiry-csv-handler.php:117
+msgid "Failed to read file."
+msgstr "读取文件失败。"
+
+#: includes/class-admin-settings.php:338
+msgid "FAQ Knowledge Base"
+msgstr "常见问题知识库"
+
+#: includes/class-meta-fields.php:318
+msgid "File too large. Max 2MB."
+msgstr "文件过大。最大 2MB。"
+
+#: includes/class-bulk-inquiry-csv-handler.php:111
+msgid "File too large. Maximum 2MB."
+msgstr "文件过大。最大 2MB。"
+
+#: includes/class-meta-fields.php:171
+msgid "Filled in = AI quotes directly, boosts inquiries."
+msgstr "填写=AI直接引用，促进查询。"
+
+#: includes/class-leads-handler.php:659
+msgid "Filter"
+msgstr "筛选"
+
+#: includes/class-admin-settings.php:1102
+msgid "Filter by Category"
+msgstr "按类别筛选"
+
+#: includes/class-hooks.php:280
+msgid "Filter default settings"
+msgstr "筛选默认设置"
+
+#: includes/class-hooks.php:278
+msgid "Filter product card HTML"
+msgstr "筛选产品卡片 HTML"
+
+#: includes/class-hooks.php:276
+msgid "Filter product query arguments"
+msgstr "筛选产品查询参数"
+
+#: includes/class-hooks.php:282
+msgid "Filter template path"
+msgstr "筛选模板路径"
+
+#: includes/class-admin-settings.php:362
+msgid "Floating Widget Offset"
+msgstr "浮动小部件偏移量"
+
+#: includes/class-admin-settings.php:354
+msgid "Floating Widget Position"
+msgstr "浮动小部件位置"
+
+#: includes/class-admin-settings.php:485
+msgid "Form Fields to Display"
+msgstr "要显示的表单字段"
+
+#: includes/class-admin-settings.php:837
+msgid "Found a bug or have a suggestion? We would love to hear from you."
+msgstr "发现了 Bug 或有建议？我们很乐意听取您的意见。"
+
+#: includes/class-admin-settings.php:1047
+msgid "from this page (Step 2 above)"
+msgstr "从本页开始（上述步骤2）"
+
+#: includes/class-leads-handler.php:830
+msgid "Full Chat Log"
+msgstr "完整聊天记录"
+
+#: includes/class-ajax-handlers.php:155
+msgid "Gallery order saved"
+msgstr "图库顺序已保存"
+
+#: includes/class-leads-handler.php:427
+msgid "General"
+msgstr "常规"
+
+#: includes/class-admin-settings.php:1124
+msgid "Generated Shortcode"
+msgstr "短代码生成"
+
+#: naibabiji-b2b-product-showcase.php:667
+#: naibabiji-b2b-product-showcase.php:719 includes/class-admin-settings.php:109
+#: includes/class-admin-settings.php:1378 includes/class-ajax-handlers.php:176
+#: includes/class-meta-fields.php:583 includes/class-product-model.php:145
+#: includes/class-settings-helper.php:60
+msgid "Get Quote"
+msgstr "获取报价"
+
+#: includes/class-admin-settings.php:435
+msgid "Global Border Radius (px)"
+msgstr "全局边框半径（px）"
+
+#: includes/class-meta-fields.php:622
+msgid ""
+"Global inquiry mode: Built-in Inquiry Form. The inquiry button will open a "
+"popup form."
+msgstr "全局询价模式：内置询价表单。询价按钮将弹出表单窗口。"
+
+#: includes/class-meta-fields.php:625
+msgid ""
+"Global inquiry mode: External Link. The inquiry button will redirect to the "
+"inquiry URL."
+msgstr "全局询价模式：外部链接。询价按钮将跳转到询价链接。"
+
+#: includes/class-meta-fields.php:175
+msgid "Good descriptions = better AI + better SEO."
+msgstr "好的描述=更好的AI+更好的SEO。"
+
+#: naibabiji-b2b-product-showcase.php:403
+msgid "Hello! Is there anything I can help you with?"
+msgstr "你好！有什么我可以帮你的吗？"
+
+#: naibabiji-b2b-product-showcase.php:766 includes/class-admin-settings.php:79
+#: includes/class-admin-settings.php:80
+msgid "Help"
+msgstr "帮助"
+
+#: includes/class-admin-settings.php:750
+msgid "Help & Guides"
+msgstr "帮助与指南"
+
+#: includes/class-admin-settings.php:1542
+msgid ""
+"Help the AI understand your business. The more detail you provide, the "
+"better it can answer customer questions."
+msgstr "帮助AI了解您的业务。您提供的细节越多，它就越能回答客户的问题。"
+
+#: includes/class-admin-settings.php:1515
+msgid ""
+"Helps search engines better understand and index your products. Important: "
+"Please ensure you provide a correct SKU and Price for each product. To "
+"prevent SEO errors, if no price is specified, the \"Offer\" section will be "
+"automatically omitted—this is standard for B2B products."
+msgstr ""
+"帮助搜索引擎更好地理解并收录您的产品。重要提示：请确保为每个产品提供正确的SKU 商品编码和价格。为避免出现 SEO "
+"错误，如果未指定价格，系统将自动省略 “Offer” 部分 —— 这是 B2B 产品的通用标准。"
+
+#: includes/class-admin-settings.php:550
+msgid "Hide Archive Title"
+msgstr "隐藏归档页标题"
+
+#: includes/class-taxonomy-fields.php:307
+msgid "Hide category title"
+msgstr "隐藏分类页标题"
+
+#: includes/class-taxonomy-fields.php:522
+msgid "Hide tag title"
+msgstr "隐藏标签页标题"
+
+#: includes/class-admin-settings.php:1261
+msgid "Hide the default \"Products\" title on the archive page"
+msgstr "隐藏归档页面上的默认“产品”标题"
+
+#: includes/class-taxonomy-fields.php:309
+msgid ""
+"Hide the default category title on the category page for more flexible "
+"header design."
+msgstr "隐藏类别页面上的默认类别标题，以获得更灵活的标题设计。"
+
+#: includes/class-taxonomy-fields.php:524
+msgid ""
+"Hide the default tag title on the tag page for more flexible header design."
+msgstr "隐藏标签页面上的默认标签标题，以获得更灵活的标题设计。"
+
+#: includes/class-frontend-display.php:267
+#: templates/taxonomy-naibb2pr_product_category.php:51
+#: templates/taxonomy-naibb2pr_product_tag.php:51
+msgid "Home"
+msgstr "首页"
+
+#: includes/class-admin-settings.php:901 includes/class-admin-settings.php:1041
+msgid "How AI Reads Your Products"
+msgstr "AI如何读取你的产品"
+
+#: templates/inquiry-form-inline.php:69
+msgid "How can we help you?"
+msgstr "我们能为您做些什么？"
+
+#: includes/class-admin-settings.php:1131
+msgid "How to use:"
+msgstr "如何使用："
+
+#. URI of the plugin
+msgid "https://blog.naibabiji.com"
+msgstr "https://blog.naibabiji.com"
+
+#: templates/inquiry-form-modal.php:73
+msgid "I am interested in this product. Please send me more details..."
+msgstr "我对这个产品感兴趣。请给我发更多详细信息…"
+
+#: includes/class-meta-fields.php:197
+msgid "Import CSV"
+msgstr "导入 CSV"
+
+#: naibabiji-b2b-product-showcase.php:408
+msgid "Input your question..."
+msgstr "输入你的问题…"
+
+#: includes/class-leads-handler.php:489 includes/class-leads-handler.php:490
+#: includes/class-leads-handler.php:618
+msgid "Inquiries"
+msgstr "询盘"
+
+#: includes/class-admin-settings.php:714 includes/class-admin-settings.php:1155
+#: includes/class-leads-handler.php:712
+msgid "Inquiry"
+msgstr "询价"
+
+#: templates/inquiry-form-modal.php:18
+msgid "Inquiry for:"
+msgstr "查询："
+
+#: includes/class-leads-handler.php:418 includes/class-leads-handler.php:656
+#: includes/class-leads-handler.php:837 includes/class-leads-handler.php:881
+msgid "Inquiry Form"
+msgstr "询价表单"
+
+#: includes/class-meta-fields.php:644
+msgid "Inquiry Link:"
+msgstr "询价链接："
+
+#: includes/class-admin-settings.php:1445 templates/inquiry-form-modal.php:72
+msgid "Inquiry Message"
+msgstr "询价留言"
+
+#: includes/class-admin-settings.php:469
+msgid "Inquiry Mode"
+msgstr "询价模式"
+
+#: includes/class-admin-settings.php:789
+msgid "Inquiry Mode (Settings → Inquiry tab):"
+msgstr "询价模式（设置 → 询价选项卡）："
+
+#: templates/bulk-inquiry-form.php:78
+msgid "Inquiry Note"
+msgstr "询价备注"
+
+#: templates/bulk-inquiry-form.php:26
+msgid "Inquiry Products:"
+msgstr "询价产品："
+
+#: includes/class-admin-settings.php:380 includes/class-admin-settings.php:1181
+msgid "Inquiry Settings"
+msgstr "询价设置"
+
+#: naibabiji-b2b-product-showcase.php:455 templates/bulk-inquiry-form.php:100
+msgid "Inquiry submitted successfully!"
+msgstr "询价提交成功！"
+
+#: includes/class-admin-settings.php:781
+msgid "Inquiry System Overview"
+msgstr "询价系统概览"
+
+#: includes/class-admin-settings.php:783
+msgid "Inquiry Type (per product):"
+msgstr "询价类型（按产品）："
+
+#: includes/class-meta-fields.php:607
+msgid "Inquiry Type:"
+msgstr "询价类型："
+
+#: includes/class-ajax-handlers.php:70 includes/class-ajax-handlers.php:120
+#: includes/class-ajax-handlers.php:170 includes/class-ajax-handlers.php:206
+msgid "Insufficient permissions"
+msgstr "权限不足"
+
+#: templates/single-naibb2pr_products.php:146
+msgid ""
+"Interested in this product? Contact us now for detailed pricing and product "
+"information."
+msgstr "对本产品感兴趣？立即联系我们获取详细价格与产品信息。"
+
+#: includes/class-ajax-handlers.php:133
+msgid "Invalid parameters"
+msgstr "无效参数"
+
+#: includes/class-ai-client-handler-v2.php:116
+msgid "Invalid request"
+msgstr "无效请求"
+
+#: includes/class-admin-settings.php:1442 templates/bulk-inquiry-form.php:57
+#: templates/inquiry-form-inline.php:47 templates/inquiry-form-modal.php:51
+msgid "Job Title"
+msgstr "职位"
+
+#: includes/class-admin-settings.php:883 includes/class-admin-settings.php:1018
+msgid "Knowledge Base"
+msgstr "知识库"
+
+#: includes/class-admin-settings.php:751
+msgid "Learn how to get the most out of B2B Showcase."
+msgstr "了解如何充分利用 B2B Showcase。"
+
+#: includes/class-admin-settings.php:1708
+msgid "Left Center"
+msgstr "左中"
+
+#. Description of the plugin
+msgid ""
+"Lightweight B2B product catalog plugin without e-commerce. Showcase products,"
+" collect global RFQs and bulk quote requests with multilingual support – "
+"built for manufacturers, exporters, and wholesalers."
+msgstr "轻量级 B2B 产品目录插件，不含电商功能。展示产品、收集全球询价和批量报价请求，支持多语言 — 专为制造商、出口商和批发商打造。"
+
+#: includes/class-meta-fields.php:648
+msgid "Link to inquiry form. Fallbacks to global settings if empty."
+msgstr "链接到询盘表格。如果为空，则回退到全局设置。"
+
+#: includes/class-leads-handler.php:672 includes/class-leads-handler.php:801
+#: templates/inquiry-form-inline.php:68
+msgid "Message"
+msgstr "留言"
+
+#: includes/class-data-migration.php:69
+msgid "Migrating products..."
+msgstr "迁移产品…"
+
+#: includes/class-data-migration.php:82
+msgid "Migration failed."
+msgstr "迁移失败。"
+
+#. %d is the number of products updated
+#: includes/class-data-migration.php:107
+msgid "Migration successful! %d products updated."
+msgstr "迁移成功！%d个产品已更新。"
+
+#: includes/class-meta-fields.php:210 includes/class-meta-fields.php:372
+#: templates/bulk-inquiry-specs-table.php:31
+msgid "Model Code"
+msgstr "型号代码"
+
+#: includes/class-meta-fields.php:420
+msgid "Model Code,Spec Description"
+msgstr "型号代码,规格描述"
+
+#: includes/class-admin-settings.php:787
+msgid "Multi-spec batch inquiry with selection table and shared cart."
+msgstr "带选择表和共享购物车的多规格批量询价。"
+
+#: includes/class-frontend-display.php:405
+msgid "My Inquiry Cart"
+msgstr "我的询价车"
+
+#: includes/class-leads-handler.php:452
+msgid "naib_b2b_contact"
+msgstr "用户信息"
+
+#: includes/class-leads-handler.php:453
+msgid "naib_b2b_message"
+msgstr "留言内容"
+
+#: includes/class-leads-handler.php:450
+msgid "naib_b2b_page"
+msgstr "页面"
+
+#: includes/class-leads-handler.php:451
+msgid "naib_b2b_product"
+msgstr "产品"
+
+#: includes/class-leads-handler.php:454
+msgid "naib_b2b_product_id"
+msgstr "产品ID"
+
+#: includes/class-leads-handler.php:448
+msgid "naib_b2b_source"
+msgstr "来源"
+
+#. Author of the plugin
+msgid "Naibabiji"
+msgstr "奶爸建站笔记"
+
+#: includes/class-data-migration.php:49
+msgid "Naibabiji B2B Product Showcase Update"
+msgstr "Naibabiji B2B Product Showcase更新"
+
+#: includes/class-admin-settings.php:1439 templates/bulk-inquiry-form.php:36
+#: templates/inquiry-form-inline.php:26 templates/inquiry-form-modal.php:30
+msgid "Name"
+msgstr "姓名"
+
+#: includes/class-admin-settings.php:777
+msgid "Navigate to: B2B Showcase → Settings → AI tab"
+msgstr "导航至：B2B Showcase → 设置 → AI 选项卡"
+
+#: includes/class-admin-settings.php:765
+msgid "Navigate to: B2B Showcase → Shortcode Generator"
+msgstr "导航至：B2B Showcase → 短代码生成器"
+
+#: includes/class-admin-settings.php:771
+msgid ""
+"Navigate to: Products → Categories (or Tags) → Edit → SEO content fields"
+msgstr "导航至：产品 → 分类（或标签）→ 编辑 → SEO 内容字段"
+
+#: includes/class-admin-settings.php:862
+msgid "Need help?"
+msgstr "需要帮助？"
+
+#: naibabiji-b2b-product-showcase.php:429
+msgid "Network error. Please try again later."
+msgstr "网络错误。请稍后再试。"
+
+#: naibabiji-b2b-product-showcase.php:456
+msgid "Network error. Please try again."
+msgstr "网络错误，请重试。"
+
+#: includes/class-leads-handler.php:433
+msgid "New Inquiry"
+msgstr "新询价"
+
+#: includes/class-leads-handler.php:429
+msgid "New Message"
+msgstr "新留言"
+
+#: includes/post-types.php:26
+msgid "New Product"
+msgstr "新产品"
+
+#: includes/post-types.php:89
+msgid "New Product Category Name"
+msgstr "新产品分类名称"
+
+#: includes/post-types.php:115
+msgid "New Product Tag Name"
+msgstr "新产品标签名称"
+
+#: includes/class-admin-settings.php:1336
+msgid "Newest"
+msgstr "最新"
+
+#: templates/archive-naibb2pr_products.php:145
+#: templates/taxonomy-naibb2pr_product_category.php:128
+#: templates/taxonomy-naibb2pr_product_tag.php:75
+msgid "Next"
+msgstr "下一页"
+
+#: templates/archive-naibb2pr_products.php:130
+msgid "No Categories Found"
+msgstr "未找到分类"
+
+#: includes/class-bulk-inquiry-meta-fields.php:50
+msgid "No CSV content provided."
+msgstr "未提供 CSV 内容。"
+
+#: includes/class-bulk-inquiry-csv-handler.php:100
+msgid "No file uploaded."
+msgstr "未上传文件。"
+
+#: templates/archive-naibb2pr_products.php:116
+msgid "No Image"
+msgstr "没有图片"
+
+#: includes/class-ajax-handlers.php:81
+msgid "No image ID provided"
+msgstr "未提供图片 ID"
+
+#: includes/class-leads-handler.php:774
+msgid "No inquiries found."
+msgstr "未找到任何记录。"
+
+#: includes/class-admin-settings.php:730
+msgid "No inquiries yet"
+msgstr "暂无询价"
+
+#: includes/class-leads-handler.php:826
+msgid "No log available."
+msgstr "没有可用日志。"
+
+#: includes/class-ajax-handlers.php:380
+msgid "No matching products found"
+msgstr "未找到匹配的产品"
+
+#: includes/class-ajax-handlers.php:296
+msgid "No more products"
+msgstr "没有更多产品了"
+
+#: includes/class-shortcodes.php:133
+msgid "No product categories available."
+msgstr "暂无产品分类。"
+
+#: templates/archive-naibb2pr_products.php:131
+msgid "No product categories have been created yet."
+msgstr "尚未创建产品分类。"
+
+#: includes/post-types.php:119
+msgid "No Product Tags found"
+msgstr "未找到产品标签"
+
+#: templates/taxonomy-naibb2pr_product_category.php:136
+#: templates/taxonomy-naibb2pr_product_tag.php:83
+msgid "No Products"
+msgstr "暂无产品"
+
+#: includes/class-frontend-display.php:330
+msgid "No products available."
+msgstr "暂无可用产品。"
+
+#: includes/post-types.php:31 templates/archive-naibb2pr_products.php:153
+msgid "No Products Found"
+msgstr "未找到产品"
+
+#: includes/post-types.php:32
+msgid "No Products Found in Trash"
+msgstr "回收站中未找到产品"
+
+#: templates/bulk-inquiry-specs-table.php:17
+msgid ""
+"No specs available at the moment. Please contact us for more information."
+msgstr "目前暂无可用规格。请联系我们获取更多信息。"
+
+#: includes/class-bulk-inquiry-meta-fields.php:56
+#: includes/class-meta-fields.php:367
+msgid "No valid rows found in CSV."
+msgstr "CSV 中未找到有效行。"
+
+#: includes/class-admin-settings.php:785
+msgid "None"
+msgstr "无"
+
+#: includes/class-admin-settings.php:1426
+msgid "None — Disable inquiry"
+msgstr "无 — 禁用询价"
+
+#: includes/class-meta-fields.php:610
+msgid "None — Disable inquiry for this product"
+msgstr "无 — 禁用此产品的询价"
+
+#: includes/class-leads-handler.php:431
+msgid "None/General"
+msgstr "无/常规"
+
+#: includes/class-admin-settings.php:1363
+msgid ""
+"Note: The actual displayed width may be limited by your theme's container "
+"max-width setting. If the set width doesn't take effect, please check your "
+"theme's layout/container settings."
+msgstr "注意：实际显示的宽度可能会受到主题的容器最大宽度设置的限制。如果设置的宽度不生效，请检查您的主题的布局/容器设置。"
+
+#: includes/class-admin-settings.php:1356
+msgid ""
+"Number of columns to display on the product archive, category, and tag pages."
+msgstr "要在产品归档页、类别和标签页面上显示的列数。"
+
+#: includes/class-admin-settings.php:1086
+msgid "Number of Products"
+msgstr "产品数量"
+
+#: includes/class-admin-settings.php:1527
+msgid "Number of words to show in product excerpts on archive and search pages"
+msgstr "归档与搜索页面产品摘要显示的字数"
+
+#: includes/class-admin-settings.php:1337
+msgid "Oldest"
+msgstr "旧的"
+
+#: includes/class-admin-settings.php:1690
+msgid ""
+"One Q&A per line, format: Q: [Question] | A: [Answer]\n"
+"\n"
+"Example:\n"
+"Q: What is your minimum order quantity? | A: MOQ is 100 units. Samples "
+"accepted from 1 unit.\n"
+"Q: Do you support OEM/ODM? | A: Yes. OEM/ODM available with drawings. Lead "
+"time 30 days.\n"
+"Q: What certifications do you have? | A: ISO 9001, CE, and RoHS certified.\n"
+"Q: What are your payment terms? | A: T/T 30% deposit, 70% before shipment. "
+"L/C also accepted."
+msgstr ""
+"每行一个问答，格式：Q：[问题]|A：[答案]\n"
+"示例：\n"
+"Q: What is your minimum order quantity? | A: MOQ is 100 units. Samples "
+"accepted from 1 unit.\n"
+"Q: Do you support OEM/ODM? | A: Yes. OEM/ODM available with drawings. Lead "
+"time 30 days.\n"
+"Q: What certifications do you have? | A: ISO 9001, CE, and RoHS certified.\n"
+"Q: What are your payment terms? | A: T/T 30% deposit, 70% before shipment. "
+"L/C also accepted."
+
+#: naibabiji-b2b-product-showcase.php:402
+msgid "Online Customer Service (AI)"
+msgstr "在线客户服务（AI）"
+
+#: includes/class-frontend-display.php:139
+msgid "Online Support"
+msgstr "在线支持"
+
+#: includes/class-bulk-inquiry-csv-handler.php:106
+msgid "Only .csv files are allowed."
+msgstr "仅允许 .csv 文件。"
+
+#: includes/class-admin-settings.php:865
+msgid "Open AI Manager →"
+msgstr "打开 AI Manager →"
+
+#: includes/class-admin-settings.php:804
+msgid ""
+"Open cart sidebar → Submit Inquiry → fill contact details → submit all at "
+"once."
+msgstr "打开购物车侧栏 → 提交询价 → 填写联系方式 → 一次性提交。"
+
+#: includes/class-ai-client-handler-v2.php:134
+msgid ""
+"Our AI service is busy right now. Please leave your contact details and we "
+"will get back to you soon."
+msgstr "我们的AI服务现在繁忙。请留下您的联系方式，我们会尽快给您回复。"
+
+#: includes/class-admin-settings.php:818
+msgid ""
+"Override templates by placing files in your theme directory. The plugin "
+"checks your theme first."
+msgstr "通过将文件放在主题目录中来覆盖模板。插件会优先检查您的主题。"
+
+#: includes/class-admin-settings.php:648
+msgid "Overview of your B2B product catalog and inquiries."
+msgstr "您的 B2B 产品目录和询盘概览。"
+
+#: includes/class-leads-handler.php:428 includes/class-leads-handler.php:845
+#: templates/archive-naibb2pr_products.php:146
+#: templates/taxonomy-naibb2pr_product_category.php:129
+#: templates/taxonomy-naibb2pr_product_tag.php:76
+msgid "Page"
+msgstr "页"
+
+#: includes/class-taxonomy-fields.php:262
+#: includes/class-taxonomy-fields.php:477
+msgid "Page Bottom"
+msgstr "页面底部"
+
+#: includes/class-admin-settings.php:819
+msgid "Page Templates (theme root):"
+msgstr "页面模板（主题根目录）："
+
+#: includes/class-taxonomy-fields.php:261
+#: includes/class-taxonomy-fields.php:476
+msgid "Page Top (Recommended)"
+msgstr "页面顶部（推荐）"
+
+#: includes/post-types.php:84
+msgid "Parent Product Category"
+msgstr "父级产品分类"
+
+#: includes/post-types.php:85
+msgid "Parent Product Category:"
+msgstr "父级产品分类："
+
+#: includes/class-admin-settings.php:826
+msgid "Partial Templates (theme root or naibabiji-b2b-product-showcase/):"
+msgstr "局部模板（主题根目录或 naibabiji-b2b-product-showcase/）："
+
+#: includes/class-admin-settings.php:668
+msgid "Pending Inquiries"
+msgstr "待处理询价"
+
+#: includes/class-admin-settings.php:1441 templates/bulk-inquiry-form.php:50
+#: templates/inquiry-form-inline.php:40 templates/inquiry-form-modal.php:44
+msgid "Phone / WhatsApp"
+msgstr "电话 / WhatsApp"
+
+#: includes/class-admin-settings.php:1046
+msgid "place key specs at the top"
+msgstr "将关键规格放在前面"
+
+#: naibabiji-b2b-product-showcase.php:427
+msgid "Please enter a valid email address."
+msgstr "请输入有效的电子邮件地址。"
+
+#: includes/class-ajax-handlers.php:380
+msgid "Please try different filters."
+msgstr "请尝试不同的筛选条件。"
+
+#: naibabiji-b2b-product-showcase.php:428
+msgid "Please wait a moment before sending another message."
+msgstr "请稍等片刻再发送另一条消息。"
+
+#: includes/post-types.php:110
+msgid "Popular Product Tags"
+msgstr "热门产品标签"
+
+#: templates/archive-naibb2pr_products.php:144
+#: templates/taxonomy-naibb2pr_product_category.php:127
+#: templates/taxonomy-naibb2pr_product_tag.php:74
+msgid "Previous"
+msgstr "上一页"
+
+#: includes/class-admin-settings.php:403
+msgid "Primary Button Color"
+msgstr "主按钮颜色"
+
+#: includes/class-leads-handler.php:432 includes/class-leads-handler.php:793
+#: includes/class-leads-handler.php:846 includes/post-types.php:21
+#: includes/post-types.php:23
+msgid "Product"
+msgstr "产品"
+
+#: includes/class-admin-settings.php:757
+msgid "Product Archive Page"
+msgstr "产品归档页面"
+
+#: includes/class-hooks.php:277
+msgid "Product card HTML"
+msgstr "产品卡片 HTML"
+
+#: includes/post-types.php:80 includes/post-types.php:90
+msgid "Product Categories"
+msgstr "产品分类"
+
+#: includes/post-types.php:81
+msgid "Product Category"
+msgstr "产品分类"
+
+#: includes/class-hooks.php:264
+msgid "Product content end"
+msgstr "产品内容结束"
+
+#: includes/class-hooks.php:263
+msgid "Product content start"
+msgstr "产品内容开始"
+
+#: includes/class-meta-fields.php:98
+msgid "Product Data & Inquiry"
+msgstr "产品数据和询盘"
+
+#: includes/class-admin-settings.php:1046
+msgid "Product Detail (first ~500 words)"
+msgstr "产品详情（前~500字）"
+
+#: templates/single-naibb2pr_products.php:158
+msgid "Product Details"
+msgstr "产品详情"
+
+#: includes/class-admin-settings.php:533
+msgid "Product Excerpt Length"
+msgstr "产品摘要长度"
+
+#: includes/class-frontend-display.php:115 includes/class-meta-fields.php:84
+msgid "Product Gallery"
+msgstr "产品图集"
+
+#: includes/class-frontend-display.php:126
+msgid "Product Introduction"
+msgstr "产品介绍"
+
+#: includes/post-types.php:22
+msgid "Product Management"
+msgstr "产品管理"
+
+#: includes/class-meta-fields.php:597
+msgid "Product Price:"
+msgstr "产品价格："
+
+#: includes/class-hooks.php:275
+msgid "Product query arguments"
+msgstr "产品查询参数"
+
+#: includes/class-meta-fields.php:70
+msgid "Product Short Description"
+msgstr "产品简短描述"
+
+#: includes/class-meta-fields.php:455
+msgid "Product Short Description:"
+msgstr "产品简短描述："
+
+#: includes/class-meta-fields.php:589
+msgid "Product SKU:"
+msgstr "产品SKU："
+
+#: includes/post-types.php:108
+msgid "Product Tag"
+msgstr "产品标签"
+
+#: includes/post-types.php:107 includes/post-types.php:120
+msgid "Product Tags"
+msgstr "产品标签"
+
+#: includes/post-types.php:33
+msgid "Product Thumbnail"
+msgstr "产品缩略图"
+
+#: includes/class-meta-fields.php:158
+msgid "Product Title"
+msgstr "产品标题"
+
+#: includes/class-admin-settings.php:1044
+msgid "Product Title, SKU & Price"
+msgstr "产品名称、SKU和价格"
+
+#: includes/class-frontend-display.php:270 includes/class-leads-handler.php:673
+#: includes/class-leads-handler.php:903 includes/post-types.php:20
+#: includes/post-types.php:40 templates/archive-naibb2pr_products.php:40
+#: templates/taxonomy-naibb2pr_product_category.php:52
+#: templates/taxonomy-naibb2pr_product_tag.php:52
+msgid "Products"
+msgstr "产品"
+
+#: includes/class-leads-handler.php:697
+#: templates/archive-naibb2pr_products.php:122
+#: templates/taxonomy-naibb2pr_product_category.php:41
+#: templates/taxonomy-naibb2pr_product_tag.php:41
+msgid "products"
+msgstr "个产品"
+
+#: includes/class-admin-settings.php:1323
+msgid "Products only — hide category filters"
+msgstr "仅产品-隐藏分类过滤器"
+
+#: includes/class-frontend-display.php:487
+msgid "products,"
+msgstr "个产品，"
+
+#: includes/class-admin-settings.php:664
+msgid "Published"
+msgstr "已发布"
+
+#: includes/class-meta-fields.php:167
+msgid "Put tech parameters & certifications at the top."
+msgstr "将技术参数和认证放在前面。"
+
+#: templates/bulk-inquiry-specs-table.php:33
+msgid "Quantity"
+msgstr "数量"
+
+#: naibabiji-b2b-product-showcase.php:458
+msgid "Quantity must be greater than 0"
+msgstr "数量必须大于 0"
+
+#: templates/inquiry-form-modal.php:13
+msgid "Quick Inquiry"
+msgstr "快速询价"
+
+#: includes/class-admin-settings.php:806
+msgid "Rate limit: 5 minutes / 3 submissions per IP."
+msgstr "速率限制：每个 IP 每 5 分钟 / 3 次提交。"
+
+#: includes/class-admin-settings.php:678
+msgid "Recent Inquiries"
+msgstr "最近询价"
+
+#: includes/class-leads-handler.php:638
+msgid "Records older than this will be permanently deleted."
+msgstr "超过此时间的记录将被永久删除。"
+
+#: includes/class-admin-settings.php:501
+msgid "Redirect After Submission"
+msgstr "提交后重定向"
+
+#: includes/class-admin-settings.php:1476
+msgid ""
+"Redirect to a custom page after successful form submission (for Google Ads "
+"conversion tracking)"
+msgstr "表单提交成功后重定向到自定义页面（用于Google Ads转化跟踪）"
+
+#: includes/class-admin-settings.php:509
+msgid "Redirect URL"
+msgstr "重定向网址"
+
+#: templates/single-naibb2pr_products.php:213
+msgid "Related Products"
+msgstr "相关产品"
+
+#: includes/class-meta-fields.php:511 includes/class-taxonomy-fields.php:234
+#: includes/class-taxonomy-fields.php:326
+msgid "Remove Image"
+msgstr "移除图片"
+
+#: includes/class-leads-handler.php:628
+msgid ""
+"Remove inquiry records older than a specified number of days to free up "
+"database space. This includes AI chat logs, product inquiry forms, and "
+"contact form submissions."
+msgstr "删除超过指定天数的咨询记录，以释放数据库存储空间。这些记录包括AI聊天日志、产品咨询表单及联系表单提交内容。"
+
+#: includes/class-frontend-display.php:479
+msgid "Remove product"
+msgstr "移除产品"
+
+#: includes/post-types.php:35
+msgid "Remove Product Thumbnail"
+msgstr "移除产品缩略图"
+
+#: includes/class-meta-fields.php:201
+msgid "Replace"
+msgstr "替换"
+
+#: includes/class-admin-settings.php:1439
+#: includes/class-admin-settings.php:1440
+#: includes/class-admin-settings.php:1445
+msgid "Required"
+msgstr "必填"
+
+#: includes/class-admin-settings.php:1707
+msgid "Right Center"
+msgstr "右中"
+
+#: includes/class-leads-handler.php:643
+msgid "Run Cleanup Now"
+msgstr "立即运行清理"
+
+#: includes/class-data-migration.php:54
+msgid "Run Migration Now"
+msgstr "立即运行迁移"
+
+#: includes/class-admin-settings.php:1036
+msgid "Save AI Settings"
+msgstr "保存AI设置"
+
+#: includes/post-types.php:82
+msgid "Search Product Categories"
+msgstr "搜索产品分类"
+
+#: includes/post-types.php:109
+msgid "Search Product Tags"
+msgstr "搜索产品标签"
+
+#: includes/post-types.php:30
+msgid "Search Products"
+msgstr "搜索产品"
+
+#: includes/class-ajax-handlers.php:307 includes/class-ajax-handlers.php:394
+msgid "Security check failed"
+msgstr "安全检查失败"
+
+#: includes/class-bulk-inquiry-meta-fields.php:45
+msgid "Security check failed."
+msgstr "安全检查失败。"
+
+#: includes/class-ajax-handlers.php:65 includes/class-ajax-handlers.php:115
+#: includes/class-ajax-handlers.php:165 includes/class-ajax-handlers.php:200
+#: includes/class-ajax-handlers.php:234
+msgid "Security verification failed"
+msgstr "安全验证失败"
+
+#: naibabiji-b2b-product-showcase.php:430
+msgid "Security verification failed. Please reload the page and try again."
+msgstr "安全验证失败。请刷新页面然后重试。"
+
+#: includes/class-taxonomy-fields.php:83
+msgid "Select Category Image"
+msgstr "选择分类图片"
+
+#: includes/class-meta-fields.php:517
+msgid ""
+"Select multiple images to create a product gallery. Images will be displayed "
+"in the order you arrange them."
+msgstr "选择多张图片创建产品图集。图片将按您排列的顺序显示。"
+
+#: templates/bulk-inquiry-specs-table.php:25
+msgid "Select the specs you need and enter quantity."
+msgstr "选择您需要的规格并输入数量。"
+
+#: templates/bulk-inquiry-specs-table.php:64
+msgid "Selected: 0 specs"
+msgstr "已选：0 个规格"
+
+#: naibabiji-b2b-product-showcase.php:460
+msgid "Selected: {count} specs"
+msgstr "已选：{count} 个规格"
+
+#: naibabiji-b2b-product-showcase.php:409
+msgid "Send"
+msgstr "发送"
+
+#: templates/inquiry-form-modal.php:84
+msgid "Send Inquiry"
+msgstr "发送询价"
+
+#: templates/inquiry-form-inline.php:90
+msgid "Send Message"
+msgstr "发送消息"
+
+#: includes/class-admin-settings.php:1157
+msgid "SEO"
+msgstr "SEO"
+
+#: includes/class-taxonomy-fields.php:240
+#: includes/class-taxonomy-fields.php:455
+msgid "SEO Content"
+msgstr "SEO 内容"
+
+#: includes/class-admin-settings.php:582 includes/class-taxonomy-fields.php:363
+#: includes/class-taxonomy-fields.php:559
+msgid "SEO Content - Page Bottom"
+msgstr "SEO内容-页面底部"
+
+#: includes/class-admin-settings.php:574 includes/class-taxonomy-fields.php:334
+#: includes/class-taxonomy-fields.php:530
+msgid "SEO Content - Page Top"
+msgstr "SEO内容-页面顶部"
+
+#: includes/class-taxonomy-fields.php:380
+msgid ""
+"SEO content displayed at the bottom of the category page, supporting text, "
+"images, and links."
+msgstr "SEO内容显示在类别页面底部，支持文本、图像和链接。"
+
+#: includes/class-taxonomy-fields.php:576
+msgid ""
+"SEO content displayed at the bottom of the tag page, supporting text, images,"
+" and links."
+msgstr "SEO内容显示在标签页面底部，支持文本、图像和链接。"
+
+#: includes/class-taxonomy-fields.php:351
+msgid ""
+"SEO content displayed at the top of the category page, supporting text, "
+"images, and links."
+msgstr "SEO内容显示在类别页面顶部，支持文本、图像和链接。"
+
+#: includes/class-taxonomy-fields.php:255
+msgid ""
+"SEO content displayed at the top of the category page, supporting text, "
+"images, and links. This helps improve the SEO performance of the page."
+msgstr "显示在分类页面顶部的 SEO 内容，支持文字、图片和链接，有助于提升页面 SEO 表现。"
+
+#: includes/class-taxonomy-fields.php:547
+msgid ""
+"SEO content displayed at the top of the tag page, supporting text, images, "
+"and links."
+msgstr "SEO内容显示在标签页面顶部，支持文本、图像和链接。"
+
+#: includes/class-taxonomy-fields.php:470
+msgid ""
+"SEO content displayed at the top of the tag page, supporting text, images, "
+"and links. This helps improve the SEO performance of the page."
+msgstr "显示在标签页面顶部的 SEO 内容，支持文字、图片和链接，有助于提升页面 SEO 表现。"
+
+#: includes/class-admin-settings.php:387 includes/class-admin-settings.php:1199
+msgid "SEO Settings"
+msgstr "SEO 设置"
+
+#: includes/post-types.php:116
+msgid "Separate Product Tags with commas"
+msgstr "使用逗号分隔产品标签"
+
+#: includes/class-admin-settings.php:1561
+msgid "Service Usage"
+msgstr "服务使用情况"
+
+#: includes/post-types.php:34
+msgid "Set Product Thumbnail"
+msgstr "设置产品缩略图"
+
+#: includes/class-admin-settings.php:1369
+msgid ""
+"Set the global border radius for buttons, product cards, and images. "
+"Supports all CSS units (px, rem, %, etc.). Examples: 8px, 0.5rem, 50%, 10px "
+"10px 0 0"
+msgstr ""
+"设置按钮、产品卡片和图像的全局边框半径。支持所有CSS单位（px、rem、%等）。示例：8px、0.5rem、50%、10px 10px 0 0"
+
+#: includes/class-admin-settings.php:1362
+msgid ""
+"Set the maximum width for product content areas (single, taxonomy, archive "
+"pages). Leave empty to use theme default. Examples: 100%, 1400px, 90vw"
+msgstr "设置产品内容区域（单个、分类、存档页面）的最大宽度。留空以使用主题默认值。示例：100%、1400px、90vw"
+
+#: naibabiji-b2b-product-showcase.php:780 includes/class-admin-settings.php:69
+#: includes/class-admin-settings.php:70 includes/class-admin-settings.php:1151
+msgid "Settings"
+msgstr "设置"
+
+#: includes/class-ajax-handlers.php:190
+msgid "Settings reset to defaults"
+msgstr "设置已重置为默认"
+
+#: includes/class-ajax-handlers.php:224
+msgid "Settings saved"
+msgstr "设置已保存"
+
+#: includes/class-admin-settings.php:1045 includes/class-meta-fields.php:162
+msgid "Short Description"
+msgstr "简短描述"
+
+#: includes/class-meta-fields.php:486
+msgid ""
+"Short description is used for display in product listing pages and search "
+"results, recommended to keep within 100-200 characters."
+msgstr "简短描述用于产品列表与搜索结果，建议控制在 100-200 字内。"
+
+#: includes/class-admin-settings.php:59 includes/class-admin-settings.php:60
+#: includes/class-admin-settings.php:763 includes/class-admin-settings.php:1074
+msgid "Shortcode Generator"
+msgstr "短代码生成器"
+
+#: includes/class-admin-settings.php:1117
+msgid "Show \"Inquiry\" Button"
+msgstr "显示“询盘”按钮"
+
+#: includes/class-admin-settings.php:1116
+msgid "Show \"View Details\" Button"
+msgstr "显示“查看详情”按钮"
+
+#: includes/class-admin-settings.php:1115
+msgid "Show Category"
+msgstr "显示类别"
+
+#: includes/class-admin-settings.php:1114
+msgid "Show Excerpt"
+msgstr "节目摘要"
+
+#: includes/class-admin-settings.php:1374
+msgid "Show the category and tag information block on product pages"
+msgstr "在产品页面显示分类与标签信息块"
+
+#: includes/class-admin-settings.php:786
+msgid ""
+"Single-product inquiry. Controlled by Inquiry Mode (External Link or Built-"
+"in Form)."
+msgstr "单个产品询价。由询价模式控制（外部链接或内置表单）。"
+
+#: includes/class-meta-fields.php:170
+msgid "SKU & Price"
+msgstr "SKU&价格"
+
+#: naibabiji-b2b-product-showcase.php:404
+msgid ""
+"Sorry, I cannot fully answer your question. Please leave your contact "
+"information and we will get back to you as soon as possible:"
+msgstr "抱歉，我无法完全回答您的问题。请留下您的联系方式，我们会尽快回复您："
+
+#: templates/archive-naibb2pr_products.php:154
+msgid "Sorry, no products were found."
+msgstr "抱歉，未找到产品。"
+
+#: templates/taxonomy-naibb2pr_product_category.php:137
+msgid "Sorry, there are no products in this category yet."
+msgstr "抱歉，该分类下暂时没有产品。"
+
+#: templates/taxonomy-naibb2pr_product_tag.php:84
+msgid "Sorry, there are no products with this tag yet."
+msgstr "抱歉，暂时没有带此标签的产品。"
+
+#: includes/class-admin-settings.php:619 includes/class-admin-settings.php:744
+#: includes/class-admin-settings.php:912 includes/class-admin-settings.php:923
+#: includes/class-admin-settings.php:1063
+#: includes/class-admin-settings.php:1143
+msgid "Sorry, you are not allowed to access this page."
+msgstr "抱歉，您无权访问此页面。"
+
+#: includes/class-admin-settings.php:690 includes/class-leads-handler.php:669
+#: includes/class-leads-handler.php:789
+msgid "Source"
+msgstr "来源"
+
+#: includes/class-meta-fields.php:211 includes/class-meta-fields.php:372
+#: templates/bulk-inquiry-specs-table.php:32
+msgid "Spec Description"
+msgstr "规格描述"
+
+#: includes/class-meta-fields.php:227
+msgid ""
+"Spec description will be displayed to customers. Please fill in clearly. "
+"Drag rows to reorder."
+msgstr "规格描述将显示给客户，请清晰填写。拖动行可重新排序。"
+
+#: includes/class-frontend-display.php:487 includes/class-leads-handler.php:698
+msgid "specs"
+msgstr "个规格"
+
+#: includes/class-meta-fields.php:112
+msgid "Specs Management (Bulk Inquiry)"
+msgstr "规格管理（批量询价）"
+
+#: includes/class-admin-settings.php:709 includes/class-admin-settings.php:786
+#: includes/class-leads-handler.php:726
+msgid "Standard"
+msgstr "标准"
+
+#: includes/class-admin-settings.php:1427 includes/class-meta-fields.php:614
+msgid "Standard — Single-product inquiry"
+msgstr "标准 — 单个产品询价"
+
+#: includes/class-admin-settings.php:541
+msgid "Structured Data Currency"
+msgstr "结构化数据货币"
+
+#: templates/taxonomy-naibb2pr_product_category.php:95
+msgid "Subcategories"
+msgstr "子分类"
+
+#: naibabiji-b2b-product-showcase.php:457
+msgid "Submission failed. Please try again."
+msgstr "提交失败，请重试。"
+
+#: includes/class-admin-settings.php:493
+msgid "Submission Success Message"
+msgstr "提交成功消息"
+
+#: naibabiji-b2b-product-showcase.php:407
+msgid "Submit"
+msgstr "提交"
+
+#: templates/bulk-inquiry-form.php:20
+msgid "Submit Bulk Inquiry"
+msgstr "提交批量询价"
+
+#: includes/class-frontend-display.php:414 templates/bulk-inquiry-form.php:90
+msgid "Submit Inquiry"
+msgstr "提交询价"
+
+#: templates/bulk-inquiry-specs-table.php:70
+msgid "Submit Inquiry Directly"
+msgstr "直接提交询价"
+
+#: includes/class-hooks.php:272
+msgid "Template load end"
+msgstr "模板加载结束"
+
+#: includes/class-hooks.php:270
+msgid "Template load start"
+msgstr "模板加载开始"
+
+#: includes/class-admin-settings.php:817
+msgid "Template Override"
+msgstr "模板覆盖"
+
+#: includes/class-hooks.php:281
+msgid "Template path"
+msgstr "模板路径"
+
+#: includes/class-admin-settings.php:939
+msgid "Test API Keys (use any of these for testing):"
+msgstr "测试API密钥（使用其中任何一个进行测试）："
+
+#: includes/class-admin-settings.php:139 includes/class-admin-settings.php:1466
+#: includes/class-frontend-display.php:385
+msgid "Thank you! Your inquiry has been sent successfully."
+msgstr "谢谢！您的询价已发送成功。"
+
+#: includes/class-contact-form-shortcode.php:75
+msgid "Thank you! Your message has been sent successfully."
+msgstr "谢谢！您的留言已成功发送。"
+
+#: includes/class-admin-settings.php:782
+msgid "The plugin has two layers of inquiry configuration:"
+msgstr "该插件有两层询价配置："
+
+#: includes/class-admin-settings.php:1675
+msgid "The URL of your AI Manager instance."
+msgstr "AI Manager实例的URL。"
+
+#: includes/class-admin-settings.php:1387
+msgid "This default link will be used when a product has no inquiry link set"
+msgstr "当产品未设置询价链接时，将使用此默认链接"
+
+#: naibabiji-b2b-product-showcase.php:459
+msgid "This field is required"
+msgstr "此字段为必填项"
+
+#: includes/class-admin-settings.php:672
+msgid "This Month"
+msgstr "本月"
+
+#: includes/class-admin-settings.php:1398
+msgid ""
+"This setting applies only to products with Inquiry Type = Standard. Bulk "
+"inquiry products always use the built-in bulk inquiry form."
+msgstr "此设置仅适用于询价类型为「标准」的产品。批量询价产品始终使用内置的批量询价表单。"
+
+#: includes/class-admin-settings.php:1380
+msgid "This setting can be overridden for individual products"
+msgstr "此设置可在单个产品中覆盖"
+
+#: includes/class-admin-settings.php:1685
+msgid ""
+"This tells the AI who you are. Include company background, key capabilities, "
+"certifications, lead times, and payment terms."
+msgstr "这告诉AI能你是谁。包括公司背景、关键能力、认证、交付周期和付款条件。"
+
+#: includes/class-admin-settings.php:1050
+msgid ""
+"Tip: Writing good Short Descriptions = better AI answers AND better SEO "
+"rankings. Two benefits, one effort."
+msgstr "提示：写好的简短描述=更好的AI答案和更好的SEO排名。两个好处，一个努力。"
+
+#: includes/class-admin-settings.php:1338
+msgid "Title A-Z"
+msgstr "标题A-Z"
+
+#: includes/class-admin-settings.php:1339
+msgid "Title Z-A"
+msgstr "标题Z-A"
+
+#: includes/class-admin-settings.php:1563
+msgid "Tokens/Requests:"
+msgstr "词元/请求："
+
+#: includes/class-taxonomy-fields.php:263
+#: includes/class-taxonomy-fields.php:478
+msgid "Top and Bottom"
+msgstr "顶部和底部"
+
+#: templates/taxonomy-naibb2pr_product_category.php:41
+#: templates/taxonomy-naibb2pr_product_tag.php:41
+msgid "Total"
+msgstr "共计"
+
+#. %d: Number of products in the category
+#: includes/class-shortcodes.php:194
+msgid "Total %d products"
+msgstr "共 %d 个产品"
+
+#: includes/class-admin-settings.php:660
+msgid "Total Products"
+msgstr "产品总数"
+
+#: includes/class-admin-settings.php:1088
+msgid "Total products to display."
+msgstr "要展示的产品总数。"
+
+#: includes/class-meta-fields.php:378
+msgid "Total rows:"
+msgstr "总行数："
+
+#: includes/class-admin-settings.php:689 includes/class-leads-handler.php:670
+msgid "Type"
+msgstr "类型"
+
+#: includes/class-data-migration.php:99
+msgid "Unauthorized access."
+msgstr "未经授权的访问。"
+
+#: includes/class-bulk-inquiry-meta-fields.php:40
+msgid "Unauthorized."
+msgstr "未授权。"
+
+#: includes/class-taxonomy-fields.php:271
+#: includes/class-taxonomy-fields.php:486
+msgid "Uncheck to temporarily hide SEO content without deleting it."
+msgstr "取消勾选可临时隐藏 SEO 内容而不删除。"
+
+#: includes/post-types.php:87
+msgid "Update Product Category"
+msgstr "更新产品分类"
+
+#: includes/post-types.php:113
+msgid "Update Product Tag"
+msgstr "更新产品标签"
+
+#: includes/class-taxonomy-fields.php:236
+#: includes/class-taxonomy-fields.php:328
+msgid ""
+"Upload a category image. Used when archive page is set to categories-only "
+"display mode."
+msgstr "上传分类图像。当存档页面设置为仅显示产品分类时使用。"
+
+#: includes/class-taxonomy-fields.php:233
+#: includes/class-taxonomy-fields.php:325
+msgid "Upload Image"
+msgstr "上传图片"
+
+#: includes/post-types.php:36
+msgid "Use as Product Thumbnail"
+msgstr "用作产品缩略图"
+
+#: includes/class-meta-fields.php:159
+msgid "Use precise industry terms, e.g. \"Ball Valve DN50 PN16 SS304\""
+msgstr "使用精确的行业术语，例如“Ball Valve DN50 PN16 SS304”"
+
+#: includes/class-admin-settings.php:764
+msgid ""
+"Use the visual shortcode generator to easily create product display "
+"shortcodes."
+msgstr "使用可视化短代码生成器轻松创建产品展示短代码。"
+
+#: includes/class-taxonomy-fields.php:84
+msgid "Use this image"
+msgstr "使用此图像"
+
+#: includes/class-meta-fields.php:601
+msgid ""
+"Used for Google Structured Data. If empty, the Offer schema will be omitted."
+msgstr "用于Google结构化数据。如果为空，则将省略Offer架构。"
+
+#: includes/class-admin-settings.php:1262
+msgid ""
+"Useful when you want to design your own header using the SEO content area "
+"below."
+msgstr "当您想使用下面的SEO内容区域设计自己的标题时很有用。"
+
+#: includes/class-admin-settings.php:1555
+msgid "Verify License"
+msgstr "验证许可证"
+
+#: includes/class-admin-settings.php:680
+msgid "View All"
+msgstr "查看全部"
+
+#: templates/archive-naibb2pr_products.php:157
+#: templates/taxonomy-naibb2pr_product_category.php:138
+#: templates/taxonomy-naibb2pr_product_tag.php:85
+msgid "View All Products"
+msgstr "查看全部产品"
+
+#: includes/class-leads-handler.php:619
+msgid "View and manage customer inquiries from all sources."
+msgstr "查看和管理来自所有来源的客户询盘。"
+
+#: includes/class-leads-handler.php:455
+msgid "View detail in dashboard"
+msgstr "在仪表板中查看详细信息"
+
+#: templates/content-product-card.php:77
+msgid "View Details"
+msgstr "查看详情"
+
+#: includes/post-types.php:28
+msgid "View Product"
+msgstr "查看产品"
+
+#: includes/class-admin-settings.php:863
+msgid ""
+"Visit the AI Manager to get your API key, view usage, and manage your AI "
+"service."
+msgstr "访问 AI Manager 获取您的 API 密钥、查看使用情况并管理您的 AI 服务。"
+
+#: includes/class-admin-settings.php:802
+msgid "Visitor selects specs, enters quantity, clicks Add to Cart."
+msgstr "访客选择规格、输入数量、点击加入购物车。"
+
+#: includes/class-data-migration.php:50
+msgid ""
+"We have upgraded the data structure for better performance. Please run the "
+"migration to update your existing products to the new format."
+msgstr "我们已升级数据结构以获得更好的性能。请运行迁移以将现有产品更新为新格式。"
+
+#: templates/bulk-inquiry-form.php:101
+msgid "We will get back to you via email shortly."
+msgstr "我们会尽快通过邮件回复您。"
+
+#: includes/class-admin-settings.php:838
+msgid "WeChat:"
+msgstr "微信："
+
+#: includes/class-admin-settings.php:1042
+msgid ""
+"When a visitor chats with the AI on a product page, the AI automatically "
+"receives:"
+msgstr "当访问者在产品页面上与AI聊天时，AI会自动收到："
+
+#: includes/class-admin-settings.php:902
+msgid ""
+"When a visitor chats with the AI on a product page, the AI automatically "
+"receives: Product Title, SKU & Price; Short Description; first ~500 words of "
+"Product Detail; Company Profile & FAQ from this page."
+msgstr ""
+"当访问者在产品页面上与 AI 聊天时，AI 会自动获取：产品标题、SKU 和价格；简短描述；产品详情前约 500 字；以及本页的公司简介和常见问题解答。"
+
+#: includes/class-admin-settings.php:1430
+msgid ""
+"When creating a new product, the inquiry type will default to this value. "
+"You can still change it for each product individually."
+msgstr "创建新产品时，询价类型将默认为此值。您仍可在每个产品中单独更改。"
+
+#: includes/class-admin-settings.php:731
+msgid "When customers submit inquiries, they will appear here."
+msgstr "当客户提交询价时，它们将显示在此处。"
+
+#: includes/class-admin-settings.php:1477
+msgid "When enabled, the success message will be replaced by a page redirect."
+msgstr "启用后，成功消息将被页面重定向替换。"
+
+#: includes/class-admin-settings.php:813
+msgid "With custom title:"
+msgstr "自定义标题："
+
+#: includes/class-ajax-handlers.php:400
+msgid "You do not have permission to access this data"
+msgstr "您无权访问此数据"
+
+#: includes/class-ajax-handlers.php:138
+msgid "You do not have permission to edit this product"
+msgstr "您无权编辑此产品"
+
+#: includes/class-leads-handler.php:447
+msgid "You have received a new inquiry"
+msgstr "您收到了一个新的询价"
+
+#: includes/class-leads-handler.php:446
+msgid "You have received a new message"
+msgstr "您收到了一条新消息"
+
+#: templates/bulk-inquiry-form.php:65 templates/inquiry-form-inline.php:55
+#: templates/inquiry-form-modal.php:59
+msgid "Your company name"
+msgstr "您的公司名称"
+
+#: naibabiji-b2b-product-showcase.php:453
+msgid "Your inquiry cart is empty"
+msgstr "您的询价车为空"
+
+#: includes/class-frontend-display.php:409
+msgid "Your inquiry cart is empty."
+msgstr "您的询价车为空。"
+
+#. 1: current theme version, 2: required theme version
+#: naibabiji-b2b-product-showcase.php:813
+#, php-format
+msgid ""
+"Your Linghang theme (v%1$s) must be updated to v%2$s or later. The theme "
+"ships template overrides that are incompatible with older versions — leaving "
+"the theme outdated may cause product pages to break."
+msgstr "您的领航主题（v%1$s）必须更新到 v%2$s 或更高版本。该主题附带了与旧版本不兼容的模板覆盖 — 主题过旧可能导致产品页面出错。"
+
+#: templates/bulk-inquiry-form.php:37 templates/inquiry-form-inline.php:27
+#: templates/inquiry-form-modal.php:31
+msgid "Your name"
+msgstr "您的名字"
+
+#: includes/class-admin-settings.php:758
+msgid "Your products are automatically displayed at:"
+msgstr "您的产品会自动显示在："
+
+#: naibabiji-b2b-product-showcase.php:406
+msgid "Your specific needs..."
+msgstr "您的特定需求…"
+
+#: includes/class-admin-settings.php:1576
+msgid "Your unique license key for the AI service."
+msgstr "您的AI服务唯一许可证密钥。"
