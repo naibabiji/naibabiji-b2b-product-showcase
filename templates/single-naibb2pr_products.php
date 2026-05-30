@@ -179,6 +179,7 @@ get_header(); ?>
         $naibabiji_b2b_related_args = array(
             'post_type'      => 'naibb2pr_products',
             'posts_per_page' => 4,
+            // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- Single element (current post ID), no performance risk
             'post__not_in'   => array(get_the_ID()),
             'orderby'        => 'rand',
         );
