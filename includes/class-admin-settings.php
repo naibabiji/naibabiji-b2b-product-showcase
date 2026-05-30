@@ -773,7 +773,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
                             <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
                                 <?php esc_html_e('Match the plugin colors and layout to your theme. Set the primary button color, content area width, and global border radius so product cards blend seamlessly with your site design.', 'naibabiji-b2b-product-showcase'); ?>
                             </p>
-                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#appearance')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#appearance')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;" target="_blank" rel="noopener noreferrer">
                                 <?php esc_html_e('Go to Appearance Settings →', 'naibabiji-b2b-product-showcase'); ?>
                             </a>
                         </div>
@@ -787,7 +787,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
                             <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
                                 <?php esc_html_e('Choose how customers send inquiries. "External Link" redirects to your contact page or WhatsApp. "Built-in Inquiry Form" opens a popup modal on your site. You can also set the default inquiry type (Standard or Bulk) for new products.', 'naibabiji-b2b-product-showcase'); ?>
                             </p>
-                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#inquiry')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#inquiry')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;" target="_blank" rel="noopener noreferrer">
                                 <?php esc_html_e('Go to Inquiry Settings →', 'naibabiji-b2b-product-showcase'); ?>
                             </a>
                         </div>
@@ -801,7 +801,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
                             <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
                                 <?php esc_html_e('Organize your products into categories (e.g. "Valves", "Fittings", "Pumps"). Each category gets its own page with SEO content areas and can be styled individually. Add category images for the grid display mode.', 'naibabiji-b2b-product-showcase'); ?>
                             </p>
-                            <a href="<?php echo esc_url(admin_url('edit-tags.php?taxonomy=naibb2pr_product_category&post_type=naibb2pr_products')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                            <a href="<?php echo esc_url(admin_url('edit-tags.php?taxonomy=naibb2pr_product_category&post_type=naibb2pr_products')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;" target="_blank" rel="noopener noreferrer">
                                 <?php esc_html_e('Manage Categories →', 'naibabiji-b2b-product-showcase'); ?>
                             </a>
                         </div>
@@ -824,9 +824,11 @@ class Naibabiji_B2B_Product_Admin_Settings {
                                 <div style="background:#f6f7f7; padding:8px 12px; font-size:12px; font-weight:600; color:#3c434a; border-bottom:1px solid #dcdcde;">
                                     <?php esc_html_e('How to find product fields below the editor', 'naibabiji-b2b-product-showcase'); ?>
                                 </div>
-                                <img src="<?php echo esc_url($images_url . 'guide-pull-up-meta-boxes.gif'); ?>"
-                                     alt="<?php esc_attr_e('Pull up the bottom panel to reveal product fields', 'naibabiji-b2b-product-showcase'); ?>"
-                                     style="display:block; width:100%; height:auto;" />
+                                <a href="<?php echo esc_url($images_url . 'guide-pull-up-meta-boxes.gif'); ?>" target="_blank" rel="noopener noreferrer">
+                                    <img src="<?php echo esc_url($images_url . 'guide-pull-up-meta-boxes.gif'); ?>"
+                                         alt="<?php esc_attr_e('Pull up the bottom panel to reveal product fields', 'naibabiji-b2b-product-showcase'); ?>"
+                                         style="display:block; width:100%; height:auto;" />
+                                </a>
                             </div>
 
                             <!-- Static annotated image: editor → frontend mapping -->
@@ -834,9 +836,11 @@ class Naibabiji_B2B_Product_Admin_Settings {
                                 <div style="background:#f6f7f7; padding:8px 12px; font-size:12px; font-weight:600; color:#3c434a; border-bottom:1px solid #dcdcde;">
                                     <?php esc_html_e('Each field location and how it appears on the frontend', 'naibabiji-b2b-product-showcase'); ?>
                                 </div>
-                                <img src="<?php echo esc_url($images_url . 'guide-editor-mapping.png'); ?>"
-                                     alt="<?php esc_attr_e('Editor fields mapped to frontend product page', 'naibabiji-b2b-product-showcase'); ?>"
-                                     style="display:block; width:100%; height:auto;" />
+                                <a href="<?php echo esc_url($images_url . 'guide-editor-mapping.png'); ?>" target="_blank" rel="noopener noreferrer">
+                                    <img src="<?php echo esc_url($images_url . 'guide-editor-mapping.png'); ?>"
+                                         alt="<?php esc_attr_e('Editor fields mapped to frontend product page', 'naibabiji-b2b-product-showcase'); ?>"
+                                         style="display:block; width:100%; height:auto;" />
+                                </a>
                             </div>
                         </div>
                     </li>
@@ -854,7 +858,7 @@ class Naibabiji_B2B_Product_Admin_Settings {
                                 <li><?php esc_html_e('Under "Product Categories" or "Custom Links", add your product pages', 'naibabiji-b2b-product-showcase'); ?></li>
                                 <li><?php esc_html_e('For the product archive, add a Custom Link: /products/', 'naibabiji-b2b-product-showcase'); ?></li>
                             </ul>
-                            <a href="<?php echo esc_url(admin_url('nav-menus.php')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                            <a href="<?php echo esc_url(admin_url('nav-menus.php')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;" target="_blank" rel="noopener noreferrer">
                                 <?php esc_html_e('Go to Menus →', 'naibabiji-b2b-product-showcase'); ?>
                             </a>
                         </div>
