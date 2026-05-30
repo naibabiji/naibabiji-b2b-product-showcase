@@ -194,9 +194,11 @@ class Naibabiji_B2B_Product_Showcase
         }
 
         if (get_option('naibabiji_b2b_product_showcase_activated')) {
-            delete_option('naibabiji_b2b_product_showcase_activated');
-            flush_rewrite_rules();
+            // Flush rewrite rules is handled in activate() already;
+            // this flag now only means "redirect to help on first activation".
         }
+
+        $this->maybe_redirect_after_activation();
 
         $current_version = get_option('naibabiji_b2b_product_showcase_version', '0');
         if (version_compare($current_version, NAIBABIJI_B2B_PRODUCT_SHOWCASE_VERSION, '<')) {
@@ -215,6 +217,27 @@ class Naibabiji_B2B_Product_Showcase
     {
         // Check if table exists and create if not (for users who upgraded from old versions)
         $this->check_and_create_leads_table();
+    }
+
+    /**
+     * Redirect to Help page on first plugin activation
+     *
+     * @since 5.1.4
+     */
+    private function maybe_redirect_after_activation()
+    {
+        if (!get_option('naibabiji_b2b_product_showcase_activated')) {
+            return;
+        }
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+        delete_option('naibabiji_b2b_product_showcase_activated');
+        // Only redirect on admin, not frontend
+        if (is_admin() && !wp_doing_ajax()) {
+            wp_safe_redirect(admin_url('admin.php?page=naibabiji-b2b-help'));
+            exit;
+        }
     }
 
     /**

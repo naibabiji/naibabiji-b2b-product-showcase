@@ -743,6 +743,8 @@ class Naibabiji_B2B_Product_Admin_Settings {
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('Sorry, you are not allowed to access this page.', 'naibabiji-b2b-product-showcase'));
         }
+
+        $images_url = NAIBABIJI_B2B_PRODUCT_SHOWCASE_PLUGIN_URL . 'assets/images/';
         ?>
         <div class="wrap">
             <div class="naib-page-header">
@@ -752,6 +754,116 @@ class Naibabiji_B2B_Product_Admin_Settings {
                 </div>
             </div>
 
+            <!-- Getting Started Guide -->
+            <div class="naib-card" style="margin-bottom:32px;">
+                <div class="naib-section-header">
+                    <h2><?php esc_html_e('Getting Started', 'naibabiji-b2b-product-showcase'); ?></h2>
+                </div>
+                <p style="margin:0 0 20px; font-size:14px; color:#50575e;">
+                    <?php esc_html_e('Follow these 5 steps to set up your B2B product catalog. Each step takes only a minute or two.', 'naibabiji-b2b-product-showcase'); ?>
+                </p>
+
+                <ol class="naib-getting-started" style="margin:0; padding:0; list-style:none;">
+
+                    <!-- Step 1: Appearance Settings -->
+                    <li class="naib-gs-step" style="display:flex; gap:16px; padding:20px 0; border-top:1px solid #e5e5e5;">
+                        <span style="flex-shrink:0; width:32px; height:32px; background:#2271b1; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">1</span>
+                        <div style="flex:1;">
+                            <h3 style="margin:0 0 6px; font-size:15px;"><?php esc_html_e('Configure Appearance', 'naibabiji-b2b-product-showcase'); ?></h3>
+                            <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
+                                <?php esc_html_e('Match the plugin colors and layout to your theme. Set the primary button color, content area width, and global border radius so product cards blend seamlessly with your site design.', 'naibabiji-b2b-product-showcase'); ?>
+                            </p>
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#appearance')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                                <?php esc_html_e('Go to Appearance Settings →', 'naibabiji-b2b-product-showcase'); ?>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Step 2: Inquiry Mode -->
+                    <li class="naib-gs-step" style="display:flex; gap:16px; padding:20px 0; border-top:1px solid #e5e5e5;">
+                        <span style="flex-shrink:0; width:32px; height:32px; background:#2271b1; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">2</span>
+                        <div style="flex:1;">
+                            <h3 style="margin:0 0 6px; font-size:15px;"><?php esc_html_e('Set Global Inquiry Mode', 'naibabiji-b2b-product-showcase'); ?></h3>
+                            <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
+                                <?php esc_html_e('Choose how customers send inquiries. "External Link" redirects to your contact page or WhatsApp. "Built-in Inquiry Form" opens a popup modal on your site. You can also set the default inquiry type (Standard or Bulk) for new products.', 'naibabiji-b2b-product-showcase'); ?>
+                            </p>
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=naibabiji-b2b-showcase-settings#inquiry')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                                <?php esc_html_e('Go to Inquiry Settings →', 'naibabiji-b2b-product-showcase'); ?>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Step 3: Product Categories -->
+                    <li class="naib-gs-step" style="display:flex; gap:16px; padding:20px 0; border-top:1px solid #e5e5e5;">
+                        <span style="flex-shrink:0; width:32px; height:32px; background:#2271b1; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">3</span>
+                        <div style="flex:1;">
+                            <h3 style="margin:0 0 6px; font-size:15px;"><?php esc_html_e('Create Product Categories', 'naibabiji-b2b-product-showcase'); ?></h3>
+                            <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
+                                <?php esc_html_e('Organize your products into categories (e.g. "Valves", "Fittings", "Pumps"). Each category gets its own page with SEO content areas and can be styled individually. Add category images for the grid display mode.', 'naibabiji-b2b-product-showcase'); ?>
+                            </p>
+                            <a href="<?php echo esc_url(admin_url('edit-tags.php?taxonomy=naibb2pr_product_category&post_type=naibb2pr_products')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                                <?php esc_html_e('Manage Categories →', 'naibabiji-b2b-product-showcase'); ?>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Step 4: Publish First Product -->
+                    <li class="naib-gs-step" style="display:flex; gap:16px; padding:20px 0; border-top:1px solid #e5e5e5;">
+                        <span style="flex-shrink:0; width:32px; height:32px; background:#2271b1; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">4</span>
+                        <div style="flex:1;">
+                            <h3 style="margin:0 0 6px; font-size:15px;"><?php esc_html_e('Publish Your First Product', 'naibabiji-b2b-product-showcase'); ?></h3>
+                            <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
+                                <?php esc_html_e('The product edit screen has important fields below the content editor. Scroll down or pull up the bottom panel to access: Product Short Description, Product Gallery, and Specs Management.', 'naibabiji-b2b-product-showcase'); ?>
+                            </p>
+                            <a href="<?php echo esc_url(admin_url('post-new.php?post_type=naibb2pr_products')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px; margin-bottom:16px;">
+                                <?php esc_html_e('Add New Product →', 'naibabiji-b2b-product-showcase'); ?>
+                            </a>
+
+                            <!-- Animated GIF: pull up meta boxes -->
+                            <div style="margin-top:12px; border:1px solid #dcdcde; border-radius:4px; overflow:hidden; max-width:720px;">
+                                <div style="background:#f6f7f7; padding:8px 12px; font-size:12px; font-weight:600; color:#3c434a; border-bottom:1px solid #dcdcde;">
+                                    <?php esc_html_e('How to find product fields below the editor', 'naibabiji-b2b-product-showcase'); ?>
+                                </div>
+                                <img src="<?php echo esc_url($images_url . 'guide-pull-up-meta-boxes.gif'); ?>"
+                                     alt="<?php esc_attr_e('Pull up the bottom panel to reveal product fields', 'naibabiji-b2b-product-showcase'); ?>"
+                                     style="display:block; width:100%; height:auto;" />
+                            </div>
+
+                            <!-- Static annotated image: editor → frontend mapping -->
+                            <div style="margin-top:16px; border:1px solid #dcdcde; border-radius:4px; overflow:hidden; max-width:720px;">
+                                <div style="background:#f6f7f7; padding:8px 12px; font-size:12px; font-weight:600; color:#3c434a; border-bottom:1px solid #dcdcde;">
+                                    <?php esc_html_e('Each field location and how it appears on the frontend', 'naibabiji-b2b-product-showcase'); ?>
+                                </div>
+                                <img src="<?php echo esc_url($images_url . 'guide-editor-mapping.png'); ?>"
+                                     alt="<?php esc_attr_e('Editor fields mapped to frontend product page', 'naibabiji-b2b-product-showcase'); ?>"
+                                     style="display:block; width:100%; height:auto;" />
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Step 5: Navigation Menu -->
+                    <li class="naib-gs-step" style="display:flex; gap:16px; padding:20px 0; border-top:1px solid #e5e5e5;">
+                        <span style="flex-shrink:0; width:32px; height:32px; background:#2271b1; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">5</span>
+                        <div style="flex:1;">
+                            <h3 style="margin:0 0 6px; font-size:15px;"><?php esc_html_e('Add Products to Navigation Menu', 'naibabiji-b2b-product-showcase'); ?></h3>
+                            <p style="margin:0 0 8px; color:#50575e; font-size:13px;">
+                                <?php esc_html_e('Make it easy for visitors to find your product catalog. Add the Products archive page and individual product category pages to your site\'s main navigation menu.', 'naibabiji-b2b-product-showcase'); ?>
+                            </p>
+                            <ul style="margin:0 0 8px; padding:0 0 0 16px; color:#50575e; font-size:13px;">
+                                <li><?php esc_html_e('Go to Appearance → Menus', 'naibabiji-b2b-product-showcase'); ?></li>
+                                <li><?php esc_html_e('Under "Product Categories" or "Custom Links", add your product pages', 'naibabiji-b2b-product-showcase'); ?></li>
+                                <li><?php esc_html_e('For the product archive, add a Custom Link: /products/', 'naibabiji-b2b-product-showcase'); ?></li>
+                            </ul>
+                            <a href="<?php echo esc_url(admin_url('nav-menus.php')); ?>" class="naib-btn naib-btn--primary" style="font-size:12px;">
+                                <?php esc_html_e('Go to Menus →', 'naibabiji-b2b-product-showcase'); ?>
+                            </a>
+                        </div>
+                    </li>
+
+                </ol>
+            </div>
+
+            <!-- Existing reference cards -->
             <div class="naib-help-grid">
                 <div class="naib-help-card">
                     <h3><?php esc_html_e('Product Archive Page', 'naibabiji-b2b-product-showcase'); ?></h3>
