@@ -51,8 +51,8 @@ class Naibabiji_B2B_Product_Meta_Fields {
         add_action( 'save_post', array( $this, 'save_meta_fields' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
         add_action( 'admin_head', array( $this, 'force_show_excerpt_box' ) );
-        add_action( 'edit_form_after_title', array( $this, 'render_short_description_above_editor' ) );
-
+        add_filter( 'default_hidden_meta_boxes', array( $this, 'show_short_description_meta_box' ), 10, 2 );
+        
         // Add excerpt support immediately, rather than through the init hook
         $this->add_excerpt_support();
     }
@@ -65,6 +65,20 @@ class Naibabiji_B2B_Product_Meta_Fields {
      * @since 1.0.0
      */
     public function add_meta_boxes() {
+        add_meta_box(
+            'naibabiji_b2b_product_short_description_box',
+            esc_html__( 'Product Short Description', 'naibabiji-b2b-product-showcase' ),
+            array( $this, 'render_short_description_meta_box' ),
+            'naibb2pr_products',
+            'normal',
+            'high',
+            null,
+            array(
+                '__back_compat_meta_box' => false,
+                '__block_editor_compatible_meta_box' => true,
+            )
+        );
+        
         add_meta_box(
             'naibabiji_b2b_product_gallery',
             esc_html__( 'Product Gallery', 'naibabiji-b2b-product-showcase' ),
@@ -430,63 +444,6 @@ class Naibabiji_B2B_Product_Meta_Fields {
      * @since 1.0.0
      * @param WP_Post $post Current post object being edited
      */
-    /**
-     * Render Short Description above the editor (edit_form_after_title)
-     *
-     * @since 5.1.4
-     * @param WP_Post $post Current post object being edited
-     */
-    public function render_short_description_above_editor( $post ) {
-        if ( 'naibb2pr_products' !== $post->post_type ) {
-            return;
-        }
-
-        $product = new Naibabiji_B2B_Product( $post );
-        $short_description = $product->get_short_description();
-        ?>
-        <div class="naib-short-desc-card" style="background:#fff; border:1px solid #c3c4c7; border-radius:4px; padding:0; margin:12px 0 0;">
-            <div class="naib-short-desc-card__header" style="background:#f6f7f7; border-bottom:1px solid #c3c4c7; padding:10px 16px; display:flex; align-items:center; gap:8px;">
-                <span style="font-size:16px;">📝</span>
-                <h2 style="margin:0; font-size:14px; font-weight:600; color:#1d2327;">
-                    <?php esc_html_e( 'Product Short Description', 'naibabiji-b2b-product-showcase' ); ?>
-                </h2>
-                <span style="font-size:11px; color:#646970; margin-left:auto;">
-                    <?php esc_html_e( 'Displayed in product listings and search results', 'naibabiji-b2b-product-showcase' ); ?>
-                </span>
-            </div>
-            <div style="padding:16px;">
-                <?php
-                wp_nonce_field( 'naibabiji_b2b_product_meta_nonce', 'naibabiji_b2b_product_meta_nonce' );
-                wp_editor(
-                    $short_description,
-                    'naibabiji_b2b_product_short_description',
-                    array(
-                        'textarea_name'  => 'naibabiji_b2b_product_short_description',
-                        'textarea_rows'  => 6,
-                        'editor_height'  => 160,
-                        'media_buttons'  => false,
-                        'teeny'          => false,
-                        'drag_drop_upload' => false,
-                        'quicktags'      => array(
-                            'buttons' => 'strong,em,del,ul,ol,li,link'
-                        ),
-                        'tinymce'        => array(
-                            'toolbar1' => 'bold,italic,underline,forecolor,bullist,numlist,link,unlink,removeformat',
-                            'toolbar2' => '',
-                            'statusbar' => false,
-                            'branding'  => false,
-                        ),
-                    )
-                );
-                ?>
-                <p class="description" style="margin:8px 0 0; color:#646970; font-size:12px;">
-                    <?php esc_html_e( 'Short description for product listings and search results. Recommended within 100–200 characters.', 'naibabiji-b2b-product-showcase' ); ?>
-                </p>
-            </div>
-        </div>
-        <?php
-    }
-
     public function render_short_description_meta_box( $post ) {
         // Use the model to handle data retrieval with fallbacks
         $product = new Naibabiji_B2B_Product( $post );
