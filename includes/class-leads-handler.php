@@ -94,12 +94,14 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return true;
         }
 
-        $name = isset($_POST['name'])
-            ? sanitize_text_field(wp_unslash($_POST['name']))
-            : $this->extract_contact_field($contact, 'Name');
-        $email = isset($_POST['email'])
-            ? sanitize_email(wp_unslash($_POST['email']))
-            : sanitize_email($this->extract_contact_field($contact, 'Email'));
+        $name = Naibabiji_B2B_Product_Security::get_post_data('name', '', 'sanitize_text_field');
+        if ('' === $name) {
+            $name = $this->extract_contact_field($contact, 'Name');
+        }
+        $email = Naibabiji_B2B_Product_Security::get_post_data('email', '', 'sanitize_email');
+        if ('' === $email) {
+            $email = sanitize_email($this->extract_contact_field($contact, 'Email'));
+        }
 
         if ('' === $name) {
             return new WP_Error('missing_name', __('Name is required', 'naibabiji-b2b-product-showcase'));
@@ -304,7 +306,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
 
         $user_message = Naibabiji_B2B_Product_Security::get_post_data('message', '', 'sanitize_textarea_field');
         // Parse cart data from POST — cart_data is JSON, each field sanitized after decode
-        $cart_data_raw = Naibabiji_B2B_Product_Security::get_post_data('cart_data', '', 'wp_unslash');
+        $cart_data_raw = Naibabiji_B2B_Product_Security::get_post_data('cart_data', '', 'strval');
         $cart_data = json_decode($cart_data_raw, true);
 
         if (json_last_error() !== JSON_ERROR_NONE || !is_array($cart_data)) {
@@ -679,8 +681,9 @@ class Naibabiji_B2B_AI_Leads_Handler {
         global $wpdb;
         
         // Handle cleanup action
-        if (isset($_POST['naib_cleanup_action']) && isset($_POST['naib_cleanup_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['naib_cleanup_nonce'])), 'naib_cleanup_leads')) {
-            $days = isset($_POST['cleanup_days']) ? absint($_POST['cleanup_days']) : 90;
+        $cleanup_nonce = Naibabiji_B2B_Product_Security::get_post_data('naib_cleanup_nonce', '');
+        if (isset($_POST['naib_cleanup_action']) && wp_verify_nonce($cleanup_nonce, 'naib_cleanup_leads')) {
+            $days = (int) Naibabiji_B2B_Product_Security::get_post_data('cleanup_days', 90, 'absint');
             $deleted_count = $this->cleanup_old_leads($days);
             echo '<div class="notice notice-success is-dismissible"><p>' . 
                  sprintf(
