@@ -146,14 +146,15 @@ class Naibabiji_B2B_AI_Leads_Handler {
      * AJAX handler for frontend lead submission
      */
     public function handle_save_lead_ajax() {
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+        $nonce = Naibabiji_B2B_Product_Security::get_post_data('nonce', '');
         if (!wp_verify_nonce($nonce, 'naibabiji_b2b_product_nonce')) {
             wp_send_json_error('Security check failed');
             return;
         }
 
         // Honeypot check — bots fill hidden fields, humans don't
-        if (!empty($_POST['naib_hp_field'])) {
+        $hp_field = Naibabiji_B2B_Product_Security::get_post_data('naib_hp_field', '');
+        if (!empty($hp_field)) {
             wp_send_json_error('Security check failed');
             return;
         }
@@ -177,21 +178,21 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
 
-        $contact     = isset($_POST['contact']) ? sanitize_textarea_field(wp_unslash($_POST['contact'])) : '';
+        $contact     = Naibabiji_B2B_Product_Security::get_post_data('contact', '', 'sanitize_textarea_field');
         if (empty($contact)) {
             wp_send_json_error('Contact info is required');
             return;
         }
 
-        $source      = isset($_POST['source']) ? sanitize_text_field(wp_unslash($_POST['source'])) : 'ai_chat';
-        $message     = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+        $source      = Naibabiji_B2B_Product_Security::get_post_data('source', 'ai_chat');
+        $message     = Naibabiji_B2B_Product_Security::get_post_data('message', '', 'sanitize_textarea_field');
         $validation  = $this->validate_contact_submission($source, $contact, $message);
         if (is_wp_error($validation)) {
             wp_send_json_error($validation->get_error_message());
             return;
         }
 
-        $history_raw = isset($_POST['history']) ? sanitize_text_field(wp_unslash($_POST['history'])) : '[]';
+        $history_raw = Naibabiji_B2B_Product_Security::get_post_data('history', '[]');
         // JSON decode and sanitize history array
         $history     = is_string($history_raw) ? json_decode($history_raw, true) : $history_raw;
         if (!is_array($history)) {
@@ -209,10 +210,10 @@ class Naibabiji_B2B_AI_Leads_Handler {
         $data = [
             'contact'    => $contact,
             'message'    => $message,
-            'product_id' => isset($_POST['product_id']) ? absint($_POST['product_id']) : 0,
+            'product_id' => (int) Naibabiji_B2B_Product_Security::get_post_data('product_id', 0, 'absint'),
             'history'    => $history,
             'source'     => $source,
-            'page_title' => isset($_POST['page_title']) ? sanitize_text_field(wp_unslash($_POST['page_title'])) : '',
+            'page_title' => Naibabiji_B2B_Product_Security::get_post_data('page_title', ''),
         ];
 
         $result = $this->save_lead($data);
@@ -233,14 +234,15 @@ class Naibabiji_B2B_AI_Leads_Handler {
      * AJAX handler for bulk inquiry submission
      */
     public function handle_bulk_inquiry_ajax() {
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+        $nonce = Naibabiji_B2B_Product_Security::get_post_data('nonce', '');
         if (!wp_verify_nonce($nonce, 'naibabiji_b2b_bulk_inquiry_nonce')) {
             wp_send_json_error('Security check failed');
             return;
         }
 
         // Honeypot check
-        if (!empty($_POST['naib_hp_field'])) {
+        $hp_field = Naibabiji_B2B_Product_Security::get_post_data('naib_hp_field', '');
+        if (!empty($hp_field)) {
             wp_send_json_error('Security check failed');
             return;
         }
@@ -262,7 +264,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
         $form_fields = Naibabiji_B2B_Settings::get('inquiry_form_fields', array('name', 'email', 'message'));
 
         if (in_array('name', $form_fields, true)) {
-            $name = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
+            $name = Naibabiji_B2B_Product_Security::get_post_data('name', '');
             if ('' === $name) {
                 wp_send_json_error('Name is required');
                 return;
@@ -270,24 +272,28 @@ class Naibabiji_B2B_AI_Leads_Handler {
             $contact_parts[] = 'Name: ' . $name;
         }
         if (in_array('email', $form_fields, true)) {
-            $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+            $email = Naibabiji_B2B_Product_Security::get_post_data('email', '', 'sanitize_email');
             if ('' === $email || !is_email($email)) {
                 wp_send_json_error('Please enter a valid email address');
                 return;
             }
             $contact_parts[] = 'Email: ' . $email;
         }
-        if (in_array('whatsapp', $form_fields) && !empty($_POST['whatsapp'])) {
-            $contact_parts[] = 'WhatsApp: ' . sanitize_text_field(wp_unslash($_POST['whatsapp']));
+        $whatsapp = Naibabiji_B2B_Product_Security::get_post_data('whatsapp', '');
+        if (in_array('whatsapp', $form_fields) && !empty($whatsapp)) {
+            $contact_parts[] = 'WhatsApp: ' . $whatsapp;
         }
-        if (in_array('job_title', $form_fields) && !empty($_POST['job_title'])) {
-            $contact_parts[] = 'Job Title: ' . sanitize_text_field(wp_unslash($_POST['job_title']));
+        $job_title = Naibabiji_B2B_Product_Security::get_post_data('job_title', '');
+        if (in_array('job_title', $form_fields) && !empty($job_title)) {
+            $contact_parts[] = 'Job Title: ' . $job_title;
         }
-        if (in_array('company', $form_fields) && !empty($_POST['company'])) {
-            $contact_parts[] = 'Company: ' . sanitize_text_field(wp_unslash($_POST['company']));
+        $company = Naibabiji_B2B_Product_Security::get_post_data('company', '');
+        if (in_array('company', $form_fields) && !empty($company)) {
+            $contact_parts[] = 'Company: ' . $company;
         }
-        if (in_array('country', $form_fields) && !empty($_POST['country'])) {
-            $contact_parts[] = 'Country: ' . sanitize_text_field(wp_unslash($_POST['country']));
+        $country = Naibabiji_B2B_Product_Security::get_post_data('country', '');
+        if (in_array('country', $form_fields) && !empty($country)) {
+            $contact_parts[] = 'Country: ' . $country;
         }
 
         $user_contact = implode("\n", $contact_parts);
@@ -296,10 +302,9 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
 
-        $user_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+        $user_message = Naibabiji_B2B_Product_Security::get_post_data('message', '', 'sanitize_textarea_field');
         // Parse cart data from POST — cart_data is JSON, each field sanitized after decode
-        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- JSON decoded then per-field sanitized in loop below
-        $cart_data_raw = isset($_POST['cart_data']) ? wp_unslash($_POST['cart_data']) : '';
+        $cart_data_raw = Naibabiji_B2B_Product_Security::get_post_data('cart_data', '', 'wp_unslash');
         $cart_data = json_decode($cart_data_raw, true);
 
         if (json_last_error() !== JSON_ERROR_NONE || !is_array($cart_data)) {
@@ -361,7 +366,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
                 'product_id'    => null,
                 'chat_history'  => '',
                 'lead_source'   => 'inquiry_form',
-                'page_title'    => isset($_POST['page_title']) ? sanitize_text_field(wp_unslash($_POST['page_title'])) : '',
+                'page_title'    => Naibabiji_B2B_Product_Security::get_post_data('page_title', ''),
                 'inquiry_type'  => 'bulk',
                 'inquiry_data'  => wp_json_encode($inquiry_data, JSON_UNESCAPED_UNICODE),
                 'created_at'    => current_time('mysql'),
@@ -387,7 +392,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
      * AJAX handler for loading lead detail (admin)
      */
     public function handle_get_lead_detail_ajax() {
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+        $nonce = Naibabiji_B2B_Product_Security::get_post_data('nonce', '');
         if (!wp_verify_nonce($nonce, 'naib_lead_detail_nonce')) {
             wp_send_json_error('Security check failed');
             return;
@@ -398,7 +403,7 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
 
-        $lead_id = isset($_POST['lead_id']) ? absint($_POST['lead_id']) : 0;
+        $lead_id = (int) Naibabiji_B2B_Product_Security::get_post_data('lead_id', 0, 'absint');
         if (!$lead_id) {
             wp_send_json_error('Missing lead ID');
             return;
@@ -648,13 +653,13 @@ class Naibabiji_B2B_AI_Leads_Handler {
             return;
         }
         
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+        $nonce = Naibabiji_B2B_Product_Security::get_post_data('nonce', '');
         if (!wp_verify_nonce($nonce, 'naib_cleanup_leads')) {
             wp_send_json_error('Security check failed');
             return;
         }
-        
-        $days = isset($_POST['days']) ? absint($_POST['days']) : 90;
+
+        $days = (int) Naibabiji_B2B_Product_Security::get_post_data('days', 90, 'absint');
         $deleted = $this->cleanup_old_leads($days);
         
         wp_send_json_success(array(

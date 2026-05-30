@@ -1222,26 +1222,6 @@ class Naibabiji_B2B_Product_Admin_Settings {
             </form>
         </div>
         
-        <script>
-        jQuery(document).ready(function($) {
-            // Settings tab navigation
-            $('.naib-tabs .naib-tab').on('click', function(e) {
-                e.preventDefault();
-                var target = $(this).attr('href').substring(1);
-
-                $('.naib-tabs .naib-tab').removeClass('active');
-                $(this).addClass('active');
-
-                $('.naib-settings-tab').removeClass('active');
-                $('#tab-' + target).addClass('active');
-            });
-
-            // Open AI tab if URL hash parameter present
-            if (window.location.hash === '#ai') {
-                $('.naib-tabs .naib-tab[href="#ai"]').trigger('click');
-            }
-        });
-        </script>
         <?php
     }
     
@@ -1396,26 +1376,6 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
             <option value="form" <?php selected($value, 'form'); ?>><?php esc_html_e('Built-in Inquiry Form — Popup modal on click', 'naibabiji-b2b-product-showcase'); ?></option>
         </select>
         <p class="description"><?php esc_html_e('This setting applies only to products with Inquiry Type = Standard. Bulk inquiry products always use the built-in bulk inquiry form.', 'naibabiji-b2b-product-showcase'); ?></p>
-        <script>
-            jQuery(document).ready(function($) {
-                function toggleInquiryModeFields(mode) {
-                    if (mode === 'form') {
-                        $('.naib-b2b-form-only').closest('tr').fadeIn();
-                        $('.naib-b2b-external-only').closest('tr').hide();
-                    } else {
-                        $('.naib-b2b-form-only').closest('tr').hide();
-                        $('.naib-b2b-external-only').closest('tr').fadeIn();
-                    }
-                }
-
-                // Page load: set initial visibility
-                toggleInquiryModeFields($('#naibabiji_b2b_product_inquiry_mode').val());
-
-                $('#naibabiji_b2b_product_inquiry_mode').on('change', function() {
-                    toggleInquiryModeFields($(this).val());
-                });
-            });
-        </script>
         <?php
     }
 
@@ -1476,24 +1436,6 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
         echo esc_html__('Redirect to a custom page after successful form submission (for Google Ads conversion tracking)', 'naibabiji-b2b-product-showcase') . '</label>';
         echo '<p class="description">' . esc_html__('When enabled, the success message will be replaced by a page redirect.', 'naibabiji-b2b-product-showcase') . '</p>';
         echo '</div>';
-        echo '<script>
-            jQuery(document).ready(function($) {
-                function toggleRedirectUrl() {
-                    if ($("#naibabiji_b2b_product_inquiry_redirect_enabled").is(":checked")) {
-                        $(".naib-b2b-redirect-url").closest("tr").fadeIn();
-                    } else {
-                        $(".naib-b2b-redirect-url").closest("tr").hide();
-                    }
-                }
-                toggleRedirectUrl();
-                $("#naibabiji_b2b_product_inquiry_redirect_enabled").on("change", toggleRedirectUrl);
-                $("#naibabiji_b2b_product_inquiry_mode").on("change", function() {
-                    if ($(this).val() === "form") {
-                        toggleRedirectUrl();
-                    }
-                });
-            });
-        </script>';
     }
 
     public function inquiry_redirect_url_callback() {
@@ -1549,7 +1491,6 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
 
     public function ai_license_key_callback() {
         $value = get_option('naibabiji_b2b_ai_license_key', '');
-        $nonce = wp_create_nonce('naibabiji_b2b_admin_verify_nonce');
         echo '<div style="display:flex; gap:10px; align-items:center;">';
         echo '<input type="text" id="naib_ai_license_key" name="naibabiji_b2b_ai_license_key" value="' . esc_attr($value) . '" class="regular-text" placeholder="NB-XXXX-XXXX" />';
         echo '<button type="button" id="naib_ai_verify_btn" class="button">' . esc_html__('Verify License', 'naibabiji-b2b-product-showcase') . '</button>';
@@ -1575,95 +1516,7 @@ echo '<p class="description" style="color:#856404; background:#fff3cd; padding:8
         echo '</div>';
         echo '<p class="description">' . esc_html__('Your unique license key for the AI service.', 'naibabiji-b2b-product-showcase') . '</p>';
 
-        $nonce = wp_create_nonce('naibabiji_b2b_admin_verify_nonce');
         ?>
-        <script>
-        jQuery(document).ready(function($) {
-            function updateUsageUI(data) {
-                if (!data) return;
-                var container = $('#naib_ai_usage_container');
-                var used = data.quota_used || 0;
-                var total = data.quota_total || 0;
-                var expiry = data.expires_at || 'N/A';
-                
-                $('#naib_ai_usage_text').text(used.toLocaleString() + ' / ' + total.toLocaleString());
-                
-                var percent = total > 0 ? (used / total) * 100 : 0;
-                $('#naib_ai_usage_bar').css('width', Math.min(percent, 100) + '%');
-                
-                // Color coding
-                if (percent > 90) $('#naib_ai_usage_bar').css('background', '#dc3232');
-                else if (percent > 70) $('#naib_ai_usage_bar').css('background', '#dba617');
-                else $('#naib_ai_usage_bar').css('background', '#46b450');
-
-                $('#naib_ai_expiry_text').text(expiry);
-                container.fadeIn();
-            }
-
-            $('#naib_ai_verify_btn').on('click', function() {
-                var btn = $(this);
-                var status = $('#naib_ai_verify_status');
-                var key = $('#naib_ai_license_key').val();
-                
-                if (!key) {
-                    alert('Please enter a license key first.');
-                    return;
-                }
-
-                btn.prop('disabled', true).text('Verifying...');
-                status.text('').css('color', 'inherit');
-                $('#naib_ai_usage_container').hide();
-
-                $.post(ajaxurl, {
-                    action: 'naib_ai_verify_license',
-                    license_key: key,
-                    nonce: '<?php echo esc_attr($nonce); ?>'
-                }, function(response) {
-                    btn.prop('disabled', false).text('Verify License');
-                    if (response.success) {
-                        status.text('✓ Valid').css('color', '#46b450');
-                        updateUsageUI(response.data);
-                        $('#naib_ai_unbind_btn').show();
-                    } else {
-                        status.text('✗ ' + (response.data.message || 'Verification failed')).css('color', '#dc3232');
-                        $('#naib_ai_unbind_btn').hide();
-                    }
-                }).fail(function() {
-                    btn.prop('disabled', false).text('Verify License');
-                    status.text('✗ Network error').css('color', '#dc3232');
-                });
-            });
-
-            $('#naib_ai_unbind_btn').on('click', function() {
-                if (!confirm('Are you sure you want to deactivate and unbind this license from this domain?')) return;
-                
-                var btn = $(this);
-                var status = $('#naib_ai_verify_status');
-                
-                btn.prop('disabled', true).text('Deactivating...');
-                
-                $.post(ajaxurl, {
-                    action: 'naib_ai_unbind_license',
-                    nonce: '<?php echo esc_attr($nonce); ?>'
-                }, function(response) {
-                    btn.prop('disabled', false).text('Deactivate License');
-                    if (response.success) {
-                        alert(response.data.message || 'License deactivated successfully.');
-                        status.text('Unbound').css('color', '#999');
-                        $('#naib_ai_usage_container').hide();
-                        btn.hide();
-                    } else {
-                        alert(response.data.message || 'Deactivation failed');
-                    }
-                });
-            });
-
-            // Auto-load if key exists
-            if ($('#naib_ai_license_key').val()) {
-                $('#naib_ai_unbind_btn').show();
-            }
-        });
-        </script>
         <?php
     }
 

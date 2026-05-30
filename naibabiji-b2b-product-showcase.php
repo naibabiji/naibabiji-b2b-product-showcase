@@ -681,9 +681,20 @@ class Naibabiji_B2B_Product_Showcase
                 array(
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('naibabiji_b2b_product_admin_nonce'),
+                'verify_nonce' => wp_create_nonce('naibabiji_b2b_admin_verify_nonce'),
                 'strings' => array(
                     'confirm_delete' => __('Are you sure you want to delete this item?', 'naibabiji-b2b-product-showcase'),
                     'default_inquiry_text' => __('Get Quote', 'naibabiji-b2b-product-showcase'),
+                    'verifying' => __('Verifying...', 'naibabiji-b2b-product-showcase'),
+                    'verify_license' => __('Verify License', 'naibabiji-b2b-product-showcase'),
+                    'deactivating' => __('Deactivating...', 'naibabiji-b2b-product-showcase'),
+                    'deactivate_license' => __('Deactivate License', 'naibabiji-b2b-product-showcase'),
+                    'license_valid' => __('✓ Valid', 'naibabiji-b2b-product-showcase'),
+                    'license_unbound' => __('Unbound', 'naibabiji-b2b-product-showcase'),
+                    'enter_license' => __('Please enter a license key first.', 'naibabiji-b2b-product-showcase'),
+                    'deactivate_confirm' => __('Are you sure you want to deactivate and unbind this license from this domain?', 'naibabiji-b2b-product-showcase'),
+                    'deactivate_done' => __('License deactivated successfully.', 'naibabiji-b2b-product-showcase'),
+                    'deactivate_failed' => __('Deactivation failed', 'naibabiji-b2b-product-showcase'),
                 ),
             )
             );

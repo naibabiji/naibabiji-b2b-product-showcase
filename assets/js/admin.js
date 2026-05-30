@@ -331,6 +331,165 @@
     }
     
     /**
+     * Settings Tab Navigation
+     */
+    function initSettingsTabs() {
+        $('.naib-tabs .naib-tab').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href').substring(1);
+
+            $('.naib-tabs .naib-tab').removeClass('active');
+            $(this).addClass('active');
+
+            $('.naib-settings-tab').removeClass('active');
+            $('#tab-' + target).addClass('active');
+        });
+
+        if (window.location.hash === '#ai') {
+            $('.naib-tabs .naib-tab[href="#ai"]').trigger('click');
+        }
+    }
+
+    /**
+     * Inquiry Mode Toggle (Settings → Inquiry tab)
+     */
+    function initInquiryModeToggle() {
+        var $mode = $('#naibabiji_b2b_product_inquiry_mode');
+        if (!$mode.length) return;
+
+        function toggleFields(mode) {
+            if (mode === 'form') {
+                $('.naib-b2b-form-only').closest('tr').fadeIn();
+                $('.naib-b2b-external-only').closest('tr').hide();
+            } else {
+                $('.naib-b2b-form-only').closest('tr').hide();
+                $('.naib-b2b-external-only').closest('tr').fadeIn();
+            }
+        }
+
+        toggleFields($mode.val());
+        $mode.on('change', function() {
+            toggleFields($(this).val());
+        });
+    }
+
+    /**
+     * Redirect URL Toggle (Settings → Inquiry tab)
+     */
+    function initRedirectUrlToggle() {
+        var $redirect = $('#naibabiji_b2b_product_inquiry_redirect_enabled');
+        if (!$redirect.length) return;
+
+        function toggleRedirectUrl() {
+            if ($redirect.is(':checked')) {
+                $('.naib-b2b-redirect-url').closest('tr').fadeIn();
+            } else {
+                $('.naib-b2b-redirect-url').closest('tr').hide();
+            }
+        }
+
+        toggleRedirectUrl();
+        $redirect.on('change', toggleRedirectUrl);
+        $('#naibabiji_b2b_product_inquiry_mode').on('change', function() {
+            if ($(this).val() === 'form') {
+                toggleRedirectUrl();
+            }
+        });
+    }
+
+    /**
+     * AI License Key Verification
+     */
+    function initAiLicenseVerify() {
+        var $keyInput = $('#naib_ai_license_key');
+        var $verifyBtn = $('#naib_ai_verify_btn');
+        var $unbindBtn = $('#naib_ai_unbind_btn');
+        var $status = $('#naib_ai_verify_status');
+        var $usageContainer = $('#naib_ai_usage_container');
+        var $usageText = $('#naib_ai_usage_text');
+        var $usageBar = $('#naib_ai_usage_bar');
+        var $expiryText = $('#naib_ai_expiry_text');
+
+        if (!$verifyBtn.length) return;
+
+        function updateUsageUI(data) {
+            if (!data) return;
+            var used = data.quota_used || 0;
+            var total = data.quota_total || 0;
+            var expiry = data.expires_at || 'N/A';
+
+            $usageText.text(used.toLocaleString() + ' / ' + total.toLocaleString());
+
+            var percent = total > 0 ? (used / total) * 100 : 0;
+            $usageBar.css('width', Math.min(percent, 100) + '%');
+
+            if (percent > 90) $usageBar.css('background', '#dc3232');
+            else if (percent > 70) $usageBar.css('background', '#dba617');
+            else $usageBar.css('background', '#46b450');
+
+            $expiryText.text(expiry);
+            $usageContainer.fadeIn();
+        }
+
+        $verifyBtn.on('click', function() {
+            var key = $keyInput.val();
+
+            if (!key) {
+                alert(adminData.strings.enter_license || 'Please enter a license key first.');
+                return;
+            }
+
+            $verifyBtn.prop('disabled', true).text(adminData.strings.verifying || 'Verifying...');
+            $status.text('').css('color', 'inherit');
+            $usageContainer.hide();
+
+            $.post(ajaxurl, {
+                action: 'naib_ai_verify_license',
+                license_key: key,
+                nonce: adminData.verify_nonce
+            }, function(response) {
+                $verifyBtn.prop('disabled', false).text(adminData.strings.verify_license || 'Verify License');
+                if (response.success) {
+                    $status.text(adminData.strings.license_valid || '✓ Valid').css('color', '#46b450');
+                    updateUsageUI(response.data);
+                    $unbindBtn.show();
+                } else {
+                    $status.text('✗ ' + (response.data.message || 'Verification failed')).css('color', '#dc3232');
+                    $unbindBtn.hide();
+                }
+            }).fail(function() {
+                $verifyBtn.prop('disabled', false).text(adminData.strings.verify_license || 'Verify License');
+                $status.text('✗ Network error').css('color', '#dc3232');
+            });
+        });
+
+        $unbindBtn.on('click', function() {
+            if (!confirm(adminData.strings.deactivate_confirm || 'Are you sure you want to deactivate and unbind this license from this domain?')) return;
+
+            $unbindBtn.prop('disabled', true).text(adminData.strings.deactivating || 'Deactivating...');
+
+            $.post(ajaxurl, {
+                action: 'naib_ai_unbind_license',
+                nonce: adminData.verify_nonce
+            }, function(response) {
+                $unbindBtn.prop('disabled', false).text(adminData.strings.deactivate_license || 'Deactivate License');
+                if (response.success) {
+                    alert(response.data.message || adminData.strings.deactivate_done || 'License deactivated successfully.');
+                    $status.text(adminData.strings.license_unbound || 'Unbound').css('color', '#999');
+                    $usageContainer.hide();
+                    $unbindBtn.hide();
+                } else {
+                    alert(response.data.message || adminData.strings.deactivate_failed || 'Deactivation failed');
+                }
+            });
+        });
+
+        if ($keyInput.val()) {
+            $unbindBtn.show();
+        }
+    }
+
+    /**
      * Initialize All Functions
      */
     function init() {
@@ -340,7 +499,11 @@
         initCommonFeatures();
         ShortcodeGenerator.init();
         initFormValidation();
-        
+        initSettingsTabs();
+        initInquiryModeToggle();
+        initRedirectUrlToggle();
+        initAiLicenseVerify();
+
         // Trigger custom event
         $(document).trigger('b2b_admin_ready');
     }
