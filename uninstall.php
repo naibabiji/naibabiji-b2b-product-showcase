@@ -13,17 +13,16 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }
 
-// Clear scheduled cron events
-$timestamp = wp_next_scheduled('naibabiji_b2b_weekly_cleanup');
-if ($timestamp) {
-    wp_unschedule_event($timestamp, 'naibabiji_b2b_weekly_cleanup');
+$naibabiji_b2b_timestamp = wp_next_scheduled('naibabiji_b2b_weekly_cleanup');
+if ($naibabiji_b2b_timestamp) {
+    wp_unschedule_event($naibabiji_b2b_timestamp, 'naibabiji_b2b_weekly_cleanup');
 }
 
-// Drop custom leads table
 global $wpdb;
-$table = $wpdb->prefix . 'naibb2pr_ai_leads';
-// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-$wpdb->query("DROP TABLE IF EXISTS `{$table}`");
+$naibabiji_b2b_table = $wpdb->prefix . 'naibb2pr_ai_leads';
+
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+$wpdb->query("DROP TABLE IF EXISTS `{$naibabiji_b2b_table}`");
 
 // Delete all plugin options (naibabiji_b2b_*)
 $wpdb->query(
@@ -41,6 +40,6 @@ $wpdb->query(
         '_transient_timeout_naib%'
     )
 );
+// phpcs:enable
 
-// Flush object cache
 wp_cache_flush();
