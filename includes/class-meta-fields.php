@@ -65,16 +65,6 @@ class Naibabiji_B2B_Product_Meta_Fields {
      * @since 1.0.0
      */
     public function add_meta_boxes() {
-        // Guide card — always visible at top of sidebar
-        add_meta_box(
-            'naibabiji_b2b_product_guide_card',
-            '📋 ' . esc_html__( 'Product Setup Guide', 'naibabiji-b2b-product-showcase' ),
-            array( $this, 'render_guide_card' ),
-            'naibb2pr_products',
-            'side',
-            'high'
-        );
-
         add_meta_box(
             'naibabiji_b2b_product_short_description_box',
             esc_html__( 'Product Short Description', 'naibabiji-b2b-product-showcase' ),
@@ -187,46 +177,6 @@ class Naibabiji_B2B_Product_Meta_Fields {
                 <?php esc_html_e( 'Edit Company Profile & FAQ →', 'naibabiji-b2b-product-showcase' ); ?>
             </a>
         </p>
-        <?php
-    }
-
-    /**
-     * Render Product Setup Guide card — sidebar guide for new users
-     *
-     * @since 5.1.4
-     */
-    public function render_guide_card() {
-        ?>
-        <style>
-            .naib-guide-card { font-size:12px; line-height:1.6; }
-            .naib-guide-card ul { margin:4px 0 0; padding:0 0 0 14px; }
-            .naib-guide-card ul li { margin-bottom:6px; color:#1d2327; }
-            .naib-guide-card ul li span { color:#646970; font-size:11px; }
-            .naib-guide-card .naib-guide-hint { margin-top:10px; padding:8px 10px; background:#f0f6fc; border-left:3px solid #2271b1; border-radius:0 3px 3px 0; color:#1d2327; }
-        </style>
-        <div class="naib-guide-card">
-            <p style="margin:0 0 6px; color:#1d2327;">
-                <?php esc_html_e( 'Fill in product details in the sections below the content area:', 'naibabiji-b2b-product-showcase' ); ?>
-            </p>
-            <ul>
-                <li>
-                    <?php esc_html_e( 'Product Short Description', 'naibabiji-b2b-product-showcase' ); ?>
-                    <span>— <?php esc_html_e( 'appears in product listings and search results', 'naibabiji-b2b-product-showcase' ); ?></span>
-                </li>
-                <li>
-                    <?php esc_html_e( 'Product Gallery', 'naibabiji-b2b-product-showcase' ); ?>
-                    <span>— <?php esc_html_e( 'add multiple images for the product', 'naibabiji-b2b-product-showcase' ); ?></span>
-                </li>
-                <li>
-                    <?php esc_html_e( 'Specs Management', 'naibabiji-b2b-product-showcase' ); ?>
-                    <span>— <?php esc_html_e( 'add model codes and specs for bulk inquiry', 'naibabiji-b2b-product-showcase' ); ?></span>
-                </li>
-            </ul>
-            <div class="naib-guide-hint">
-                <strong>👇 <?php esc_html_e( 'Scroll down', 'naibabiji-b2b-product-showcase' ); ?></strong>
-                <?php esc_html_e( 'below the content editor to find these sections.', 'naibabiji-b2b-product-showcase' ); ?>
-            </div>
-        </div>
         <?php
     }
 
