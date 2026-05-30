@@ -3,7 +3,7 @@
  * Plugin Name: B2B Product Catalog – No E-Commerce, Global RFQ & Bulk Quote
  * Plugin URI: https://blog.naibabiji.com
  * Description: Lightweight B2B product catalog plugin without e-commerce. Showcase products, collect global RFQs and bulk quote requests with multilingual support – built for manufacturers, exporters, and wholesalers.
- * Version: 5.1.3
+ * Version: 5.1.4
  * Author: Naibabiji
  * Text Domain: naibabiji-b2b-product-showcase
  * Domain Path: /languages
@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) {
 /**
  * Plugin constants
  */
-define('NAIBABIJI_B2B_PRODUCT_SHOWCASE_VERSION', '5.1.3');
+define('NAIBABIJI_B2B_PRODUCT_SHOWCASE_VERSION', '5.1.4');
 define('NAIBABIJI_B2B_PRODUCT_SHOWCASE_AUTHOR', 'Naibabiji');
 define('NAIBABIJI_B2B_PRODUCT_SHOWCASE_URI', 'https://blog.naibabiji.com');
 define('NAIBABIJI_B2B_PRODUCT_SHOWCASE_PLUGIN_DIR', plugin_dir_path(__FILE__));

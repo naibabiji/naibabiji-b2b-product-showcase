@@ -4,7 +4,7 @@ Tags: b2b, product catalog, rfq, bulk inquiry, no e-commerce
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 5.1.3
+Stable tag: 5.1.4
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,6 +170,14 @@ If the problem persists, please contact technical support and provide the theme 
 The plugin enforces a rate limit of 3 submissions per IP address within 5 minutes to prevent spam. If you need to test frequently or want a higher threshold, install a captcha plugin that integrates through the `naibabiji_contact_form_validate` filter.
 
 == Changelog ==
+
+= 5.1.4 =
+* **New**: Getting Started guide on Help page — 5-step tutorial walks new users through setup: appearance settings, inquiry mode, product categories, publishing products (with visual guide), and navigation menus.
+* **New**: Auto-redirect to Help page on first plugin activation, so new users land directly on the setup guide.
+* **New**: uninstall.php — clean removal of custom database tables, plugin options, and transients when the plugin is deleted.
+* **Improved**: Unified all $_POST access through Security::get_post_data() in Leads Handler for consistent input sanitization.
+* **Improved**: Moved inline admin scripts to admin.js for cleaner separation of PHP and JavaScript.
+* **Fixed**: PHPCS warnings in uninstall.php (variable prefixes, direct DB annotations), mixed line endings in class-frontend-display.php, and post__not_in annotation in product template.
 
 = 5.1.3 =
 * **Security**: Added server-side validation (name, email, message) for inquiry and contact forms to prevent empty submissions.
